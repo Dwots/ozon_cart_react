@@ -1,0 +1,81 @@
+[
+  {
+    "order": 1,
+    "title": "Обзор проекта",
+    "description": "Начните с README.md, чтобы понять, что это за проект. Это Ozon-подобный интерфейс корзины покупок на React 19 и react-router-dom v6, созданный на основе Create React App. README минимален и описывает лишь стандартные npm-скрипты (start, test, build), поэтому реальную архитектуру мы изучим, двигаясь по коду в следующих шагах.",
+    "nodeIds": ["document:README.md"]
+  },
+  {
+    "order": 2,
+    "title": "Манифест и зависимости",
+    "description": "package.json задаёт фундамент проекта: версии зависимостей (React 19, react-router-dom v6), скрипты сборки и запуска, а также конфигурацию ESLint и browserslist. Опираясь на обзор из шага 1, этот файл показывает, на каком технологическом стеке построено приложение и как его собирать. Он же связан со скриптом запуска, который монтирует точку входа из следующего шага.",
+    "nodeIds": ["config:package.json"]
+  },
+  {
+    "order": 3,
+    "title": "HTML-оболочка и точка входа",
+    "description": "index.html — это статическая оболочка SPA с корневым элементом #root, в который монтируется приложение, и ссылкой на PWA-manifest. Файл src/index.js является точкой входа: он вызывает ReactDOM.createRoot и рендерит корневой компонент App в этот #root. Это начало BFS-обхода (depth 0) — отсюда расходятся все зависимости приложения.",
+    "nodeIds": ["file:public/index.html", "file:src/index.js"],
+    "languageLesson": "В React 18+ точкой входа служит ReactDOM.createRoot(domNode).render(<App />) — это новый Concurrent API, заменивший устаревший ReactDOM.render. createRoot включает конкурентные возможности рендеринга."
+  },
+  {
+    "order": 4,
+    "title": "Корневой компонент App",
+    "description": "src/App.js — сердце приложения и самый связанный узел графа (наибольший fan-out). Он подключает hook useCart, регистрирует PWA service worker и связывает воедино Header, CartDrawer и ProductsPage, управляя состоянием открытия корзины. Это depth 1 BFS-обхода: всё, что мы увидим дальше, App либо импортирует, либо координирует.",
+    "nodeIds": ["file:src/App.js", "file:src/App.css"],
+    "languageLesson": "В React состояние, общее для нескольких дочерних компонентов (например, открыта ли корзина), поднимают наверх (lifting state up) в общего родителя и передают вниз через props и колбэки — это и делает App для Header и CartDrawer."
+  },
+  {
+    "order": 5,
+    "title": "Каталог товаров: страница",
+    "description": "src/pages/ProductsPage.jsx — страничный компонент каталога, привязанный к маршруту router. Он получает список товаров через hook useProducts, отрисовывает карточки с рейтингом, ценой и наличием и рендерит кнопку AddToCartButton для каждой позиции. Это основной пользовательский экран, к которому ведёт App из шага 4. Стили карточек и сетки вынесены в отдельный ProductsPage.css (тесно связанный кластер).",
+    "nodeIds": ["file:src/pages/ProductsPage.jsx", "file:src/pages/ProductsPage_addition/ProductsPage.css"]
+  },
+  {
+    "order": 6,
+    "title": "Загрузка данных и источник товаров",
+    "description": "Hook useProducts загружает товары через fetch к mock API, управляя статусами loading/fallback, и при недоступности сети откатывается на локальные данные. Эти локальные данные лежат в src/data/products.js, а сам mock-эндпоинт — это статический public/api/products.json. Вместе они образуют слой данных, питающий страницу каталога из шага 5.",
+    "nodeIds": ["file:src/hooks/useProducts.js", "file:src/data/products.js", "config:public/api/products.json"],
+    "languageLesson": "Кастомные hooks (имя начинается с use) инкапсулируют логику с состоянием и побочными эффектами, делая её переиспользуемой. useProducts использует useEffect для запуска fetch при монтировании и useState для хранения статусов loading/fallback."
+  },
+  {
+    "order": 7,
+    "title": "Кнопка добавления в корзину",
+    "description": "AddToCartButton.jsx — презентационный компонент кнопки «Добавить в корзину». Он вызывает переданный props-колбэк onAdd с товаром и автоматически отключается, когда товара нет в наличии. Это связующее звено между каталогом из шага 5 и логикой корзины, которую мы разберём дальше: клик по кнопке в итоге доходит до hook useCart.",
+    "nodeIds": ["file:src/components/AddToCartButton.jsx"],
+    "languageLesson": "Презентационные («глупые») компоненты не владеют бизнес-логикой, а получают данные и колбэки через props. Это разделение делает UI предсказуемым и легко тестируемым."
+  },
+  {
+    "order": 8,
+    "title": "Ядро состояния корзины: useCart",
+    "description": "src/hooks/useCart.js — центральный hook управления корзиной и один из самых востребованных узлов (высокий fan-in). Он предоставляет операции добавления, удаления, изменения количества и очистки, сохраняет состояние в localStorage и синхронизирует его между вкладками через SharedWorker, а также отслеживает статус сети. Именно сюда стекаются действия пользователя из шагов 5 и 7, а его данные читают Header и CartDrawer.",
+    "nodeIds": ["file:src/hooks/useCart.js"],
+    "languageLesson": "Для сохранения состояния между перезагрузками hook читает начальное значение из localStorage (лениво, через инициализатор useState) и записывает изменения в useEffect. Это типичный паттерн «persistent state» в React."
+  },
+  {
+    "order": 9,
+    "title": "Синхронизация корзины между вкладками",
+    "description": "public/cart-shared-worker.js — это SharedWorker, который синхронизирует состояние корзины между всеми вкладками браузера. Он хранит общий список товаров, обрабатывает подключения портов от каждой вкладки и рассылает обновления всем подключённым клиентам (broadcastCart → sendCartToPort). Этот worker напрямую связан с useCart из шага 8: когда корзина меняется в одной вкладке, остальные мгновенно получают обновление.",
+    "nodeIds": ["file:public/cart-shared-worker.js"],
+    "languageLesson": "SharedWorker — это фоновый скрипт, разделяемый между всеми вкладками одного origin. Вкладки общаются с ним через объект port (port.postMessage / port.onmessage), что позволяет вести единое состояние без сервера."
+  },
+  {
+    "order": 10,
+    "title": "UI корзины: Header и CartDrawer",
+    "description": "Эти два презентационных компонента отражают состояние корзины из useCart. Header показывает логотип, счётчик товаров и кнопку открытия панели, а CartDrawer — выезжающую панель со списком позиций, итогом и кнопками увеличения, уменьшения и удаления через props-колбэки. Они замыкают цикл взаимодействия: действия пользователя идут в useCart (шаг 8), а результат отображается здесь.",
+    "nodeIds": ["file:src/components/Header.jsx", "file:src/components/CartDrawer.jsx"]
+  },
+  {
+    "order": 11,
+    "title": "PWA: service worker и офлайн-кеширование",
+    "description": "public/service-worker.js реализует жизненный цикл install/activate/fetch и несколько стратегий кеширования: cache-first, network-first и stale-while-revalidate — для офлайн-работы. Он регистрируется из App (шаг 4) и кеширует ресурсы, включая mock API products.json. Вместе с manifest.json (имя, иконки, цвета темы, режим отображения) он превращает приложение в устанавливаемое Progressive Web App.",
+    "nodeIds": ["file:public/service-worker.js", "config:public/manifest.json"],
+    "languageLesson": "Стратегии кеширования service worker определяют баланс свежести и скорости: cache-first отдаёт кеш мгновенно (для статики), network-first предпочитает сеть с откатом на кеш (для данных), а stale-while-revalidate отдаёт кеш и фоном обновляет его."
+  },
+  {
+    "order": 12,
+    "title": "Глобальные стили",
+    "description": "В завершение тура — базовый слой оформления. src/index.css задаёт глобальные стили: сброс отступов, шрифты и оформление body для всего приложения. Это фундамент, поверх которого работают тематические стили App.css (шаг 4) и ProductsPage.css (шаг 5), формирующие узнаваемый Ozon-подобный вид интерфейса.",
+    "nodeIds": ["file:src/index.css"]
+  }
+]

@@ -1,0 +1,173 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 4,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/components/AddToCartButton.jsx",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 11,
+      "nonEmptyLines": 8,
+      "functions": [
+        {
+          "name": "AddToCartButton",
+          "startLine": 2,
+          "endLine": 9,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "AddToCartButton",
+          "callee": "onAdd",
+          "lineNumber": 5
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/data/products.js",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 66,
+      "nonEmptyLines": 66,
+      "exports": [
+        {
+          "name": "products",
+          "line": 1,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/hooks/useProducts.js",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 48,
+      "nonEmptyLines": 38,
+      "functions": [
+        {
+          "name": "useProducts",
+          "startLine": 11,
+          "endLine": 48,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "useProducts",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "useProducts",
+          "callee": "useState",
+          "lineNumber": 12
+        },
+        {
+          "caller": "useProducts",
+          "callee": "useState",
+          "lineNumber": 13
+        },
+        {
+          "caller": "useProducts",
+          "callee": "useEffect",
+          "lineNumber": 15
+        },
+        {
+          "caller": "loadProducts",
+          "callee": "fetch",
+          "lineNumber": 20
+        },
+        {
+          "caller": "loadProducts",
+          "callee": "response.json",
+          "lineNumber": 26
+        },
+        {
+          "caller": "loadProducts",
+          "callee": "setProducts",
+          "lineNumber": 29
+        },
+        {
+          "caller": "loadProducts",
+          "callee": "setStatus",
+          "lineNumber": 30
+        },
+        {
+          "caller": "loadProducts",
+          "callee": "setProducts",
+          "lineNumber": 34
+        },
+        {
+          "caller": "loadProducts",
+          "callee": "setStatus",
+          "lineNumber": 35
+        },
+        {
+          "caller": "useProducts",
+          "callee": "loadProducts",
+          "lineNumber": 40
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/pages/ProductsPage.jsx",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 55,
+      "nonEmptyLines": 44,
+      "functions": [
+        {
+          "name": "ProductsPage",
+          "startLine": 5,
+          "endLine": 53,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ProductsPage",
+          "callee": "useProducts",
+          "lineNumber": 6
+        },
+        {
+          "caller": "ProductsPage",
+          "callee": "products.map",
+          "lineNumber": 22
+        },
+        {
+          "caller": "ProductsPage",
+          "callee": "product.rating.toFixed",
+          "lineNumber": 32
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    }
+  ]
+}

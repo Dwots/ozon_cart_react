@@ -1,0 +1,502 @@
+{
+  "version": "1.0.0",
+  "gitCommitHash": "5d9577b46d0608e1a74f51bf7ecbbc96c33d3f6c",
+  "generatedAt": "2026-06-25T12:16:46.379Z",
+  "files": {
+    ".understand-anything/.understandignore": {
+      "filePath": ".understand-anything/.understandignore",
+      "contentHash": "1a51ddcaea505a3006b49e92db2a14b95889d23321349cb83da4fbf2b5cf7af4",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 52,
+      "hasStructuralAnalysis": false
+    },
+    ".understand-anything/config.json": {
+      "filePath": ".understand-anything/config.json",
+      "contentHash": "92a57d40119389447c9d824b1710815556af58055f633e0b4d7d84e96a63e9da",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 2,
+      "hasStructuralAnalysis": true
+    },
+    "package.json": {
+      "filePath": "package.json",
+      "contentHash": "e8e057fe624be926004b64d2f7a44132d962037045a9172eaac1b8a4a28419a1",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 42,
+      "hasStructuralAnalysis": true
+    },
+    "public/api/products.json": {
+      "filePath": "public/api/products.json",
+      "contentHash": "e8805b2135cff00fc64603bae6ed25d66cddd209059f20735a7beaaefa38bd22",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 11,
+      "hasStructuralAnalysis": true
+    },
+    "public/cart-shared-worker.js": {
+      "filePath": "public/cart-shared-worker.js",
+      "contentHash": "a85f6700519e0c77ea69ebb9b9db0e24c24404c7834ea1899455e44be1871c34",
+      "functions": [
+        {
+          "name": "sendCartToPort",
+          "params": [
+            "port"
+          ],
+          "exported": false,
+          "lineCount": 6
+        },
+        {
+          "name": "broadcastCart",
+          "params": [],
+          "exported": false,
+          "lineCount": 5
+        },
+        {
+          "name": "addItem",
+          "params": [
+            "product"
+          ],
+          "exported": false,
+          "lineCount": 24
+        },
+        {
+          "name": "removeItem",
+          "params": [
+            "productId"
+          ],
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "decreaseItem",
+          "params": [
+            "productId"
+          ],
+          "exported": false,
+          "lineCount": 14
+        },
+        {
+          "name": "clearCart",
+          "params": [],
+          "exported": false,
+          "lineCount": 3
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 127,
+      "hasStructuralAnalysis": true
+    },
+    "public/index.html": {
+      "filePath": "public/index.html",
+      "contentHash": "8e4b66351fa00f3c7eefd3f914da2d1763169315847156b3e07e3fe7ccfef8c1",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 15,
+      "hasStructuralAnalysis": false
+    },
+    "public/manifest.json": {
+      "filePath": "public/manifest.json",
+      "contentHash": "33fdb99cc2cd3ad8e1815b18b7005eb3f58048990d80ee7c73aed28ab69a4e19",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 26,
+      "hasStructuralAnalysis": true
+    },
+    "public/service-worker.js": {
+      "filePath": "public/service-worker.js",
+      "contentHash": "d2f4cd10656fea1d6a5622db52eac8a48e70fbb74c8877a934b96304305e13c4",
+      "functions": [
+        {
+          "name": "precache",
+          "params": [],
+          "exported": false,
+          "lineCount": 35
+        },
+        {
+          "name": "isImage",
+          "params": [
+            "request"
+          ],
+          "exported": false,
+          "lineCount": 7
+        },
+        {
+          "name": "cleanResponse",
+          "params": [
+            "response"
+          ],
+          "exported": false,
+          "lineCount": 13
+        },
+        {
+          "name": "cacheFirst",
+          "params": [
+            "request",
+            "cacheName"
+          ],
+          "exported": false,
+          "lineCount": 20
+        },
+        {
+          "name": "networkFirst",
+          "params": [
+            "request",
+            "cacheName"
+          ],
+          "exported": false,
+          "lineCount": 31
+        },
+        {
+          "name": "staleWhileRevalidate",
+          "params": [
+            "request",
+            "cacheName"
+          ],
+          "exported": false,
+          "lineCount": 16
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 212,
+      "hasStructuralAnalysis": true
+    },
+    "README.md": {
+      "filePath": "README.md",
+      "contentHash": "cdb3e04a2728824eca1b096d6b8bcdd04f1a2c1bc44fb9a430e941b024e23999",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 8,
+      "hasStructuralAnalysis": true
+    },
+    "src/App.css": {
+      "filePath": "src/App.css",
+      "contentHash": "6c686200e45cbafcc1ce455b89094466d58438a4f0e5329f2c0fa95b9f58b454",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 282,
+      "hasStructuralAnalysis": false
+    },
+    "src/App.js": {
+      "filePath": "src/App.js",
+      "contentHash": "25185162fe1afa993dddfa00eac49ff1c78f01fb4e48cf65ff7991611ba209e7",
+      "functions": [
+        {
+          "name": "App",
+          "params": [],
+          "exported": false,
+          "lineCount": 51
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "./App.css",
+          "specifiers": []
+        },
+        {
+          "source": "react",
+          "specifiers": [
+            "useEffect",
+            "useState"
+          ]
+        },
+        {
+          "source": "react-router-dom",
+          "specifiers": [
+            "Navigate",
+            "Route",
+            "Routes"
+          ]
+        },
+        {
+          "source": "./components/CartDrawer",
+          "specifiers": [
+            "CartDrawer"
+          ]
+        },
+        {
+          "source": "./components/Header",
+          "specifiers": [
+            "Header"
+          ]
+        },
+        {
+          "source": "./hooks/useCart",
+          "specifiers": [
+            "useCart"
+          ]
+        },
+        {
+          "source": "./pages/ProductsPage",
+          "specifiers": [
+            "Cart"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 63,
+      "hasStructuralAnalysis": true
+    },
+    "src/components/AddToCartButton.jsx": {
+      "filePath": "src/components/AddToCartButton.jsx",
+      "contentHash": "bd6c818151ec6bb70942e6ec3c15ba17d7b7c70e7099e03c6e4eca5bf238b328",
+      "functions": [
+        {
+          "name": "AddToCartButton",
+          "params": [],
+          "exported": false,
+          "lineCount": 8
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 12,
+      "hasStructuralAnalysis": true
+    },
+    "src/components/CartDrawer.jsx": {
+      "filePath": "src/components/CartDrawer.jsx",
+      "contentHash": "a780cde3e9c2858fa507c3c796fd5c740cb1ba08a0114e325707d5a87b295626",
+      "functions": [
+        {
+          "name": "CartDrawer",
+          "params": [],
+          "exported": true,
+          "lineCount": 58
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "CartDrawer"
+      ],
+      "totalLines": 59,
+      "hasStructuralAnalysis": true
+    },
+    "src/components/Header.jsx": {
+      "filePath": "src/components/Header.jsx",
+      "contentHash": "d7aa5cd864caa1ecd18e13f6e629f7dda4a4b572fda12d54309339b91e0c57e9",
+      "functions": [
+        {
+          "name": "Header",
+          "params": [],
+          "exported": true,
+          "lineCount": 28
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react-router-dom",
+          "specifiers": [
+            "Link"
+          ]
+        }
+      ],
+      "exports": [
+        "Header"
+      ],
+      "totalLines": 38,
+      "hasStructuralAnalysis": true
+    },
+    "src/data/products.js": {
+      "filePath": "src/data/products.js",
+      "contentHash": "db9a192bd0cb5a7819de477bc2bd23851a2ef9a88d2a1c582e35233314e1a773",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "products"
+      ],
+      "totalLines": 67,
+      "hasStructuralAnalysis": true
+    },
+    "src/hooks/useCart.js": {
+      "filePath": "src/hooks/useCart.js",
+      "contentHash": "6ceb9ca2a029ad29a1362d1de087a831dd7a9d90dcf014c42e9ca98c56cebd6d",
+      "functions": [
+        {
+          "name": "getSavedCart",
+          "params": [],
+          "exported": false,
+          "lineCount": 8
+        },
+        {
+          "name": "saveCart",
+          "params": [
+            "cart"
+          ],
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "useCart",
+          "params": [],
+          "exported": true,
+          "lineCount": 203
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useEffect",
+            "useMemo",
+            "useRef",
+            "useState"
+          ]
+        }
+      ],
+      "exports": [
+        "useCart"
+      ],
+      "totalLines": 221,
+      "hasStructuralAnalysis": true
+    },
+    "src/hooks/useProducts.js": {
+      "filePath": "src/hooks/useProducts.js",
+      "contentHash": "fe06b32987d5c3557a6b318f19b871dfd83615300b6468b1044806691b3028f8",
+      "functions": [
+        {
+          "name": "useProducts",
+          "params": [],
+          "exported": true,
+          "lineCount": 38
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useEffect",
+            "useState"
+          ]
+        },
+        {
+          "source": "../data/products",
+          "specifiers": [
+            "fallbackProducts"
+          ]
+        }
+      ],
+      "exports": [
+        "useProducts"
+      ],
+      "totalLines": 49,
+      "hasStructuralAnalysis": true
+    },
+    "src/index.css": {
+      "filePath": "src/index.css",
+      "contentHash": "0783a8d15b7c26a11d1286accf5026f3c1f8d52a17e30c4d0cfd75e146cd1e16",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 14,
+      "hasStructuralAnalysis": false
+    },
+    "src/index.js": {
+      "filePath": "src/index.js",
+      "contentHash": "e3c944b7c5f0f2ca99423e35b760dffc6a01886802d45a10efc2da8d5d5e60a4",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "react-dom/client",
+          "specifiers": [
+            "ReactDOM"
+          ]
+        },
+        {
+          "source": "react-router-dom",
+          "specifiers": [
+            "BrowserRouter"
+          ]
+        },
+        {
+          "source": "./App",
+          "specifiers": [
+            "App"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 11,
+      "hasStructuralAnalysis": true
+    },
+    "src/pages/ProductsPage_addition/ProductsPage.css": {
+      "filePath": "src/pages/ProductsPage_addition/ProductsPage.css",
+      "contentHash": "892538bbde3bf2248a5486c700b845ccaa7fab59306f232469fd9d9b7395e026",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 100,
+      "hasStructuralAnalysis": false
+    },
+    "src/pages/ProductsPage.jsx": {
+      "filePath": "src/pages/ProductsPage.jsx",
+      "contentHash": "070b16fd11e82018e0824767444d15298554a3ffb9d3a8d42cf130652d4dc0e7",
+      "functions": [
+        {
+          "name": "ProductsPage",
+          "params": [],
+          "exported": false,
+          "lineCount": 49
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "./ProductsPage_addition/ProductsPage.css",
+          "specifiers": []
+        },
+        {
+          "source": "../hooks/useProducts",
+          "specifiers": [
+            "useProducts"
+          ]
+        },
+        {
+          "source": "../components/AddToCartButton",
+          "specifiers": [
+            "AddToCartButton"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 56,
+      "hasStructuralAnalysis": true
+    }
+  }
+}

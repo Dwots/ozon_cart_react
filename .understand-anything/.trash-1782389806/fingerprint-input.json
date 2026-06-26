@@ -1,0 +1,27 @@
+{
+  "projectRoot": "C:/Users/kirill/Documents/vscode/FigZnaet/Exams/JS/src/ozon_cart_react",
+  "sourceFilePaths": [
+    ".understand-anything/.understandignore",
+    ".understand-anything/config.json",
+    "package.json",
+    "public/api/products.json",
+    "public/cart-shared-worker.js",
+    "public/index.html",
+    "public/manifest.json",
+    "public/service-worker.js",
+    "README.md",
+    "src/App.css",
+    "src/App.js",
+    "src/components/AddToCartButton.jsx",
+    "src/components/CartDrawer.jsx",
+    "src/components/Header.jsx",
+    "src/data/products.js",
+    "src/hooks/useCart.js",
+    "src/hooks/useProducts.js",
+    "src/index.css",
+    "src/index.js",
+    "src/pages/ProductsPage_addition/ProductsPage.css",
+    "src/pages/ProductsPage.jsx"
+  ],
+  "gitCommitHash": "5d9577b46d0608e1a74f51bf7ecbbc96c33d3f6c"
+}

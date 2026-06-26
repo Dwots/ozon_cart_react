@@ -1,0 +1,183 @@
+{
+  "scriptCompleted": true,
+  "commonPrefix": "",
+  "directoryGroups": {
+    "src": [
+      "file:src/App.js",
+      "file:src/components/CartDrawer.jsx",
+      "file:src/components/Header.jsx",
+      "file:src/hooks/useCart.js",
+      "file:src/index.js",
+      "file:src/components/AddToCartButton.jsx",
+      "file:src/data/products.js",
+      "file:src/hooks/useProducts.js",
+      "file:src/pages/ProductsPage.jsx",
+      "file:src/App.css",
+      "file:src/index.css",
+      "file:src/pages/ProductsPage_addition/ProductsPage.css"
+    ],
+    "root": [
+      "config:package.json",
+      "document:README.md"
+    ],
+    "public": [
+      "config:public/api/products.json",
+      "file:public/cart-shared-worker.js",
+      "file:public/index.html",
+      "config:public/manifest.json",
+      "file:public/service-worker.js"
+    ]
+  },
+  "nodeTypeGroups": {
+    "file": [
+      "file:src/App.js",
+      "file:src/components/CartDrawer.jsx",
+      "file:src/components/Header.jsx",
+      "file:src/hooks/useCart.js",
+      "file:src/index.js",
+      "file:src/components/AddToCartButton.jsx",
+      "file:src/data/products.js",
+      "file:src/hooks/useProducts.js",
+      "file:src/pages/ProductsPage.jsx",
+      "file:public/cart-shared-worker.js",
+      "file:public/index.html",
+      "file:public/service-worker.js",
+      "file:src/App.css",
+      "file:src/index.css",
+      "file:src/pages/ProductsPage_addition/ProductsPage.css"
+    ],
+    "config": [
+      "config:package.json",
+      "config:public/api/products.json",
+      "config:public/manifest.json"
+    ],
+    "document": [
+      "document:README.md"
+    ]
+  },
+  "crossCategoryEdges": [
+    {
+      "fromType": "file",
+      "toType": "file",
+      "edgeType": "related",
+      "count": 3
+    },
+    {
+      "fromType": "file",
+      "toType": "config",
+      "edgeType": "depends_on",
+      "count": 1
+    },
+    {
+      "fromType": "config",
+      "toType": "file",
+      "edgeType": "configures",
+      "count": 2
+    }
+  ],
+  "interGroupImports": [],
+  "intraGroupDensity": {
+    "src": {
+      "internalEdges": 10,
+      "totalEdges": 20,
+      "density": 0.5
+    },
+    "root": {
+      "internalEdges": 0,
+      "totalEdges": 0,
+      "density": 0
+    },
+    "public": {
+      "internalEdges": 0,
+      "totalEdges": 0,
+      "density": 0
+    }
+  },
+  "patternMatches": {
+    "public": "assets"
+  },
+  "deploymentTopology": {
+    "hasDockerfile": false,
+    "hasCompose": false,
+    "hasK8s": false,
+    "hasTerraform": false,
+    "hasCI": false,
+    "infraFiles": []
+  },
+  "dataPipeline": {
+    "schemaFiles": [],
+    "migrationFiles": [],
+    "dataModelFiles": [
+      "src/data/products.js",
+      "src/hooks/useProducts.js"
+    ],
+    "apiHandlerFiles": [
+      "public/api/products.json"
+    ]
+  },
+  "docCoverage": {
+    "groupsWithDocs": 1,
+    "totalGroups": 3,
+    "coverageRatio": 0.33,
+    "undocumentedGroups": [
+      "src",
+      "public"
+    ]
+  },
+  "dependencyDirection": [],
+  "fileStats": {
+    "totalFileNodes": 19,
+    "filesPerGroup": {
+      "src": 12,
+      "root": 2,
+      "public": 5
+    },
+    "nodeTypeCounts": {
+      "file": 15,
+      "config": 3,
+      "document": 1
+    }
+  },
+  "fileFanIn": {
+    "file:src/App.js": 1,
+    "file:src/components/CartDrawer.jsx": 1,
+    "file:src/components/Header.jsx": 1,
+    "file:src/hooks/useCart.js": 1,
+    "file:src/index.js": 0,
+    "file:src/components/AddToCartButton.jsx": 1,
+    "file:src/data/products.js": 1,
+    "file:src/hooks/useProducts.js": 1,
+    "file:src/pages/ProductsPage.jsx": 1,
+    "config:package.json": 0,
+    "config:public/api/products.json": 0,
+    "file:public/cart-shared-worker.js": 0,
+    "file:public/index.html": 0,
+    "config:public/manifest.json": 0,
+    "file:public/service-worker.js": 0,
+    "document:README.md": 0,
+    "file:src/App.css": 1,
+    "file:src/index.css": 0,
+    "file:src/pages/ProductsPage_addition/ProductsPage.css": 1
+  },
+  "fileFanOut": {
+    "file:src/App.js": 5,
+    "file:src/components/CartDrawer.jsx": 0,
+    "file:src/components/Header.jsx": 0,
+    "file:src/hooks/useCart.js": 0,
+    "file:src/index.js": 1,
+    "file:src/components/AddToCartButton.jsx": 0,
+    "file:src/data/products.js": 0,
+    "file:src/hooks/useProducts.js": 1,
+    "file:src/pages/ProductsPage.jsx": 3,
+    "config:package.json": 0,
+    "config:public/api/products.json": 0,
+    "file:public/cart-shared-worker.js": 0,
+    "file:public/index.html": 0,
+    "config:public/manifest.json": 0,
+    "file:public/service-worker.js": 0,
+    "document:README.md": 0,
+    "file:src/App.css": 0,
+    "file:src/index.css": 0,
+    "file:src/pages/ProductsPage_addition/ProductsPage.css": 0
+  }
+}

@@ -1,0 +1,10 @@
+[
+  { "id": 1, "title": "Ноутбук", "price": 70000, "link": "/img/cart/laptop.png", "rating": 4.8, "stock": 5 },
+  { "id": 2, "title": "Механическая клавиатура", "price": 8900, "link": "/img/cart/keyboard.png", "rating": 4.6, "stock": 12 },
+  { "id": 3, "title": "Игровая мышь", "price": 8000, "link": "/img/cart/gaming_mouse.jpg", "rating": 4.9, "stock": 8 },
+  { "id": 4, "title": "Смартфон", "price": 54990, "link": "/img/cart/smartphone.webp", "rating": 4.7, "stock": 10 },
+  { "id": 5, "title": "Беспроводные наушники", "price": 12990, "link": "/img/cart/headphones.jpg", "rating": 4.5, "stock": 15 },
+  { "id": 6, "title": "Смарт-часы", "price": 18990, "link": "/img/cart/smartwatch.jpg", "rating": 4.4, "stock": 0 },
+  { "id": 7, "title": "Портативная колонка", "price": 6490, "link": "/img/cart/speaker.jpg", "rating": 4.3, "stock": 7 },
+  { "id": 8, "title": "Веб-камера", "price": 4300, "link": "/img/cart/webcam.jpg", "rating": 4.2, "stock": 0 }
+]

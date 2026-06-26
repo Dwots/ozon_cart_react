@@ -1,0 +1,450 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 5,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/App.js",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 62,
+      "nonEmptyLines": 55,
+      "functions": [
+        {
+          "name": "App",
+          "startLine": 10,
+          "endLine": 60,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "App",
+          "callee": "useState",
+          "lineNumber": 11
+        },
+        {
+          "caller": "App",
+          "callee": "useCart",
+          "lineNumber": 22
+        },
+        {
+          "caller": "App",
+          "callee": "useEffect",
+          "lineNumber": 24
+        },
+        {
+          "caller": "App",
+          "callee": "navigator.serviceWorker.register",
+          "lineNumber": 28
+        },
+        {
+          "caller": "App",
+          "callee": "setIsCartOpen",
+          "lineNumber": 38
+        },
+        {
+          "caller": "App",
+          "callee": "setIsCartOpen",
+          "lineNumber": 52
+        }
+      ],
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/components/CartDrawer.jsx",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 58,
+      "nonEmptyLines": 54,
+      "functions": [
+        {
+          "name": "CartDrawer",
+          "startLine": 1,
+          "endLine": 58,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "CartDrawer",
+          "line": 1,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "CartDrawer",
+          "callee": "cart.map",
+          "lineNumber": 32
+        },
+        {
+          "caller": "CartDrawer",
+          "callee": "onDecrease",
+          "lineNumber": 40
+        },
+        {
+          "caller": "CartDrawer",
+          "callee": "onAdd",
+          "lineNumber": 41
+        },
+        {
+          "caller": "CartDrawer",
+          "callee": "onRemove",
+          "lineNumber": 42
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/components/Header.jsx",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 37,
+      "nonEmptyLines": 31,
+      "functions": [
+        {
+          "name": "Header",
+          "startLine": 10,
+          "endLine": 37,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Header",
+          "line": 10,
+          "isDefault": true
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/hooks/useCart.js",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 220,
+      "nonEmptyLines": 185,
+      "functions": [
+        {
+          "name": "getSavedCart",
+          "startLine": 5,
+          "endLine": 12,
+          "params": []
+        },
+        {
+          "name": "saveCart",
+          "startLine": 14,
+          "endLine": 16,
+          "params": [
+            "cart"
+          ]
+        },
+        {
+          "name": "useCart",
+          "startLine": 18,
+          "endLine": 220,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "useCart",
+          "line": 18,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getSavedCart",
+          "callee": "localStorage.getItem",
+          "lineNumber": 7
+        },
+        {
+          "caller": "getSavedCart",
+          "callee": "JSON.parse",
+          "lineNumber": 8
+        },
+        {
+          "caller": "saveCart",
+          "callee": "localStorage.setItem",
+          "lineNumber": 15
+        },
+        {
+          "caller": "saveCart",
+          "callee": "JSON.stringify",
+          "lineNumber": 15
+        },
+        {
+          "caller": "useCart",
+          "callee": "useState",
+          "lineNumber": 19
+        },
+        {
+          "caller": "useCart",
+          "callee": "useState",
+          "lineNumber": 20
+        },
+        {
+          "caller": "useCart",
+          "callee": "useState",
+          "lineNumber": 23
+        },
+        {
+          "caller": "useCart",
+          "callee": "useRef",
+          "lineNumber": 26
+        },
+        {
+          "caller": "useCart",
+          "callee": "useEffect",
+          "lineNumber": 28
+        },
+        {
+          "caller": "useCart",
+          "callee": "setWorkerStatus",
+          "lineNumber": 30
+        },
+        {
+          "caller": "useCart",
+          "callee": "getSavedCart",
+          "lineNumber": 34
+        },
+        {
+          "caller": "useCart",
+          "callee": "setWorkerStatus",
+          "lineNumber": 41
+        },
+        {
+          "caller": "useCart",
+          "callee": "setWorkerStatus",
+          "lineNumber": 53
+        },
+        {
+          "caller": "useCart",
+          "callee": "setCart",
+          "lineNumber": 54
+        },
+        {
+          "caller": "useCart",
+          "callee": "saveCart",
+          "lineNumber": 55
+        },
+        {
+          "caller": "useCart",
+          "callee": "setWorkerStatus",
+          "lineNumber": 60
+        },
+        {
+          "caller": "useCart",
+          "callee": "port.start",
+          "lineNumber": 63
+        },
+        {
+          "caller": "useCart",
+          "callee": "port.postMessage",
+          "lineNumber": 64
+        },
+        {
+          "caller": "useCart",
+          "callee": "port.postMessage",
+          "lineNumber": 68
+        },
+        {
+          "caller": "useCart",
+          "callee": "port.postMessage",
+          "lineNumber": 71
+        },
+        {
+          "caller": "useCart",
+          "callee": "port.close",
+          "lineNumber": 72
+        },
+        {
+          "caller": "useCart",
+          "callee": "useEffect",
+          "lineNumber": 78
+        },
+        {
+          "caller": "handleOnline",
+          "callee": "setIsOnline",
+          "lineNumber": 80
+        },
+        {
+          "caller": "handleOnline",
+          "callee": "portRef.current.postMessage",
+          "lineNumber": 85
+        },
+        {
+          "caller": "handleOffline",
+          "callee": "setIsOnline",
+          "lineNumber": 90
+        },
+        {
+          "caller": "useCart",
+          "callee": "window.addEventListener",
+          "lineNumber": 93
+        },
+        {
+          "caller": "useCart",
+          "callee": "window.addEventListener",
+          "lineNumber": 94
+        },
+        {
+          "caller": "useCart",
+          "callee": "window.removeEventListener",
+          "lineNumber": 97
+        },
+        {
+          "caller": "useCart",
+          "callee": "window.removeEventListener",
+          "lineNumber": 98
+        },
+        {
+          "caller": "updateLocalCart",
+          "callee": "setCart",
+          "lineNumber": 103
+        },
+        {
+          "caller": "updateLocalCart",
+          "callee": "prevCart.find",
+          "lineNumber": 104
+        },
+        {
+          "caller": "updateLocalCart",
+          "callee": "prevCart.map",
+          "lineNumber": 108
+        },
+        {
+          "caller": "updateLocalCart",
+          "callee": "saveCart",
+          "lineNumber": 128
+        },
+        {
+          "caller": "addToCart",
+          "callee": "portRef.current.postMessage",
+          "lineNumber": 135
+        },
+        {
+          "caller": "addToCart",
+          "callee": "updateLocalCart",
+          "lineNumber": 142
+        },
+        {
+          "caller": "removeFromCart",
+          "callee": "portRef.current.postMessage",
+          "lineNumber": 147
+        },
+        {
+          "caller": "removeFromCart",
+          "callee": "setCart",
+          "lineNumber": 154
+        },
+        {
+          "caller": "removeFromCart",
+          "callee": "prevCart.filter",
+          "lineNumber": 155
+        },
+        {
+          "caller": "removeFromCart",
+          "callee": "saveCart",
+          "lineNumber": 156
+        },
+        {
+          "caller": "decreaseItem",
+          "callee": "portRef.current.postMessage",
+          "lineNumber": 163
+        },
+        {
+          "caller": "decreaseItem",
+          "callee": "setCart",
+          "lineNumber": 170
+        },
+        {
+          "caller": "decreaseItem",
+          "callee": "prevCart\n        .map((item) => {\n          if (item.id === productId) {\n            return {\n              ...item,\n              quantity: item.quantity - 1,\n            };\n          }\n\n          return item;\n        })\n        .filter",
+          "lineNumber": 171
+        },
+        {
+          "caller": "decreaseItem",
+          "callee": "prevCart\n        .map",
+          "lineNumber": 171
+        },
+        {
+          "caller": "decreaseItem",
+          "callee": "saveCart",
+          "lineNumber": 184
+        },
+        {
+          "caller": "clearCart",
+          "callee": "portRef.current.postMessage",
+          "lineNumber": 191
+        },
+        {
+          "caller": "clearCart",
+          "callee": "saveCart",
+          "lineNumber": 197
+        },
+        {
+          "caller": "clearCart",
+          "callee": "setCart",
+          "lineNumber": 198
+        },
+        {
+          "caller": "useCart",
+          "callee": "useMemo",
+          "lineNumber": 201
+        },
+        {
+          "caller": "useCart",
+          "callee": "cart.reduce",
+          "lineNumber": 202
+        },
+        {
+          "caller": "useCart",
+          "callee": "useMemo",
+          "lineNumber": 205
+        },
+        {
+          "caller": "useCart",
+          "callee": "cart.reduce",
+          "lineNumber": 206
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/index.js",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 11,
+      "nonEmptyLines": 10,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    }
+  ]
+}

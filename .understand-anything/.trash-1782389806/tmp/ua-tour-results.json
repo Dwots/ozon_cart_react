@@ -1,0 +1,469 @@
+{
+  "scriptCompleted": true,
+  "entryPointCandidates": [
+    {
+      "id": "document:README.md",
+      "score": 5,
+      "name": "README.md",
+      "summary": "Минимальная документация проекта на основе шаблона Create React App с описанием доступных npm-скриптов."
+    },
+    {
+      "id": "file:src/index.js",
+      "score": 4,
+      "name": "index.js",
+      "summary": "Точка входа приложения: монтирует корневой компонент App в DOM через ReactDOM.createRoot."
+    },
+    {
+      "id": "file:src/App.js",
+      "score": 2,
+      "name": "App.js",
+      "summary": "Корневой компонент приложения: подключает hook useCart, регистрирует service worker (PWA) и связывает Header, CartDrawer и ProductsPage, управляя состоянием открытия корзины."
+    },
+    {
+      "id": "file:public/cart-shared-worker.js",
+      "score": 2,
+      "name": "cart-shared-worker.js",
+      "summary": "SharedWorker, синхронизирующий состояние корзины между вкладками браузера: хранит список товаров, обрабатывает подключения портов и рассылает обновления всем вкладкам."
+    },
+    {
+      "id": "file:public/service-worker.js",
+      "score": 2,
+      "name": "service-worker.js",
+      "summary": "PWA service worker, реализующий жизненный цикл install/activate/fetch и несколько стратегий кеширования (cache-first, network-first, stale-while-revalidate) для офлайн-работы."
+    }
+  ],
+  "fanInRanking": [
+    {
+      "id": "file:src/App.js",
+      "fanIn": 2,
+      "name": "App.js"
+    },
+    {
+      "id": "file:src/hooks/useCart.js",
+      "fanIn": 2,
+      "name": "useCart.js"
+    },
+    {
+      "id": "file:src/pages/ProductsPage.jsx",
+      "fanIn": 2,
+      "name": "ProductsPage.jsx"
+    },
+    {
+      "id": "file:src/components/CartDrawer.jsx",
+      "fanIn": 1,
+      "name": "CartDrawer.jsx"
+    },
+    {
+      "id": "file:src/components/Header.jsx",
+      "fanIn": 1,
+      "name": "Header.jsx"
+    },
+    {
+      "id": "file:src/index.js",
+      "fanIn": 1,
+      "name": "index.js"
+    },
+    {
+      "id": "file:src/components/AddToCartButton.jsx",
+      "fanIn": 1,
+      "name": "AddToCartButton.jsx"
+    },
+    {
+      "id": "file:src/data/products.js",
+      "fanIn": 1,
+      "name": "products.js"
+    },
+    {
+      "id": "file:src/hooks/useProducts.js",
+      "fanIn": 1,
+      "name": "useProducts.js"
+    },
+    {
+      "id": "config:public/api/products.json",
+      "fanIn": 1,
+      "name": "products.json"
+    },
+    {
+      "id": "file:public/index.html",
+      "fanIn": 1,
+      "name": "index.html"
+    },
+    {
+      "id": "file:src/App.css",
+      "fanIn": 1,
+      "name": "App.css"
+    },
+    {
+      "id": "file:src/pages/ProductsPage_addition/ProductsPage.css",
+      "fanIn": 1,
+      "name": "ProductsPage.css"
+    },
+    {
+      "id": "config:package.json",
+      "fanIn": 0,
+      "name": "package.json"
+    },
+    {
+      "id": "file:public/cart-shared-worker.js",
+      "fanIn": 0,
+      "name": "cart-shared-worker.js"
+    },
+    {
+      "id": "config:public/manifest.json",
+      "fanIn": 0,
+      "name": "manifest.json"
+    },
+    {
+      "id": "file:public/service-worker.js",
+      "fanIn": 0,
+      "name": "service-worker.js"
+    },
+    {
+      "id": "document:README.md",
+      "fanIn": 0,
+      "name": "README.md"
+    },
+    {
+      "id": "file:src/index.css",
+      "fanIn": 0,
+      "name": "index.css"
+    }
+  ],
+  "fanOutRanking": [
+    {
+      "id": "file:src/App.js",
+      "fanOut": 5,
+      "name": "App.js"
+    },
+    {
+      "id": "file:src/pages/ProductsPage.jsx",
+      "fanOut": 3,
+      "name": "ProductsPage.jsx"
+    },
+    {
+      "id": "file:src/index.js",
+      "fanOut": 1,
+      "name": "index.js"
+    },
+    {
+      "id": "file:src/hooks/useProducts.js",
+      "fanOut": 1,
+      "name": "useProducts.js"
+    },
+    {
+      "id": "config:package.json",
+      "fanOut": 1,
+      "name": "package.json"
+    },
+    {
+      "id": "file:public/cart-shared-worker.js",
+      "fanOut": 1,
+      "name": "cart-shared-worker.js"
+    },
+    {
+      "id": "config:public/manifest.json",
+      "fanOut": 1,
+      "name": "manifest.json"
+    },
+    {
+      "id": "file:public/service-worker.js",
+      "fanOut": 1,
+      "name": "service-worker.js"
+    },
+    {
+      "id": "file:src/App.css",
+      "fanOut": 1,
+      "name": "App.css"
+    },
+    {
+      "id": "file:src/pages/ProductsPage_addition/ProductsPage.css",
+      "fanOut": 1,
+      "name": "ProductsPage.css"
+    },
+    {
+      "id": "file:src/components/CartDrawer.jsx",
+      "fanOut": 0,
+      "name": "CartDrawer.jsx"
+    },
+    {
+      "id": "file:src/components/Header.jsx",
+      "fanOut": 0,
+      "name": "Header.jsx"
+    },
+    {
+      "id": "file:src/hooks/useCart.js",
+      "fanOut": 0,
+      "name": "useCart.js"
+    },
+    {
+      "id": "file:src/components/AddToCartButton.jsx",
+      "fanOut": 0,
+      "name": "AddToCartButton.jsx"
+    },
+    {
+      "id": "file:src/data/products.js",
+      "fanOut": 0,
+      "name": "products.js"
+    },
+    {
+      "id": "config:public/api/products.json",
+      "fanOut": 0,
+      "name": "products.json"
+    },
+    {
+      "id": "file:public/index.html",
+      "fanOut": 0,
+      "name": "index.html"
+    },
+    {
+      "id": "document:README.md",
+      "fanOut": 0,
+      "name": "README.md"
+    },
+    {
+      "id": "file:src/index.css",
+      "fanOut": 0,
+      "name": "index.css"
+    }
+  ],
+  "bfsTraversal": {
+    "startNode": "file:src/index.js",
+    "order": [
+      "file:src/index.js",
+      "file:src/App.js",
+      "file:src/App.css",
+      "file:src/components/CartDrawer.jsx",
+      "file:src/components/Header.jsx",
+      "file:src/hooks/useCart.js",
+      "file:src/pages/ProductsPage.jsx",
+      "file:src/components/AddToCartButton.jsx",
+      "file:src/hooks/useProducts.js",
+      "file:src/pages/ProductsPage_addition/ProductsPage.css",
+      "file:src/data/products.js"
+    ],
+    "depthMap": {
+      "file:src/index.js": 0,
+      "file:src/App.js": 1,
+      "file:src/App.css": 2,
+      "file:src/components/CartDrawer.jsx": 2,
+      "file:src/components/Header.jsx": 2,
+      "file:src/hooks/useCart.js": 2,
+      "file:src/pages/ProductsPage.jsx": 2,
+      "file:src/components/AddToCartButton.jsx": 3,
+      "file:src/hooks/useProducts.js": 3,
+      "file:src/pages/ProductsPage_addition/ProductsPage.css": 3,
+      "file:src/data/products.js": 4
+    },
+    "byDepth": {
+      "0": [
+        "file:src/index.js"
+      ],
+      "1": [
+        "file:src/App.js"
+      ],
+      "2": [
+        "file:src/App.css",
+        "file:src/components/CartDrawer.jsx",
+        "file:src/components/Header.jsx",
+        "file:src/hooks/useCart.js",
+        "file:src/pages/ProductsPage.jsx"
+      ],
+      "3": [
+        "file:src/components/AddToCartButton.jsx",
+        "file:src/hooks/useProducts.js",
+        "file:src/pages/ProductsPage_addition/ProductsPage.css"
+      ],
+      "4": [
+        "file:src/data/products.js"
+      ]
+    }
+  },
+  "nonCodeFiles": {
+    "documentation": [
+      {
+        "id": "document:README.md",
+        "name": "README.md",
+        "summary": "Минимальная документация проекта на основе шаблона Create React App с описанием доступных npm-скриптов."
+      }
+    ],
+    "infrastructure": [],
+    "data": [],
+    "config": [
+      {
+        "id": "config:package.json",
+        "name": "package.json",
+        "summary": "npm-манифест проекта Create React App: задаёт зависимости (React 19, react-router-dom v6), скрипты сборки/запуска и конфигурацию ESLint и browserslist."
+      },
+      {
+        "id": "config:public/api/products.json",
+        "name": "products.json",
+        "summary": "Mock-данные товаров, отдаваемые как статический API-эндпоинт для каталога магазина."
+      },
+      {
+        "id": "config:public/manifest.json",
+        "name": "manifest.json",
+        "summary": "PWA-manifest, описывающий имя приложения, иконки, стартовый URL, режим отображения и цвета темы для установки как Progressive Web App."
+      }
+    ]
+  },
+  "clusters": [
+    {
+      "nodes": [
+        "file:src/App.css",
+        "file:src/App.js"
+      ],
+      "edgeCount": 2
+    },
+    {
+      "nodes": [
+        "file:src/pages/ProductsPage.jsx",
+        "file:src/pages/ProductsPage_addition/ProductsPage.css"
+      ],
+      "edgeCount": 2
+    }
+  ],
+  "layers": {
+    "count": 8,
+    "list": [
+      {
+        "id": "layer:entry",
+        "name": "Точка входа и App shell",
+        "description": "Загрузка React-приложения: монтирование корневого компонента App, HTML-оболочка SPA и регистрация service worker."
+      },
+      {
+        "id": "layer:ui",
+        "name": "UI-компоненты",
+        "description": "Презентационные React-компоненты интерфейса: шапка, выезжающая панель корзины и кнопка добавления товара."
+      },
+      {
+        "id": "layer:pages",
+        "name": "Страницы",
+        "description": "Страничные React-компоненты, привязанные к маршрутам router: страница каталога товаров."
+      },
+      {
+        "id": "layer:state",
+        "name": "State и data hooks",
+        "description": "Кастомные React hooks управления состоянием: корзина с синхронизацией через SharedWorker и localStorage, загрузка товаров через fetch."
+      },
+      {
+        "id": "layer:data",
+        "name": "Данные и mock API",
+        "description": "Статический каталог товаров и mock-эндпоинт products.json, используемые как источник данных и fallback."
+      },
+      {
+        "id": "layer:workers",
+        "name": "Web workers (фоновые и PWA)",
+        "description": "Фоновые скрипты: SharedWorker синхронизации корзины между вкладками и PWA service worker с офлайн-кешированием."
+      },
+      {
+        "id": "layer:styles",
+        "name": "Стили",
+        "description": "CSS-стили приложения: глобальные базовые стили, оформление в стиле Ozon и стили страницы каталога."
+      },
+      {
+        "id": "layer:config",
+        "name": "Конфигурация и документация",
+        "description": "Манифесты и документация проекта: npm-манифест Create React App, PWA-manifest и README."
+      }
+    ]
+  },
+  "nodeSummaryIndex": {
+    "file:src/App.js": {
+      "name": "App.js",
+      "type": "file",
+      "summary": "Корневой компонент приложения: подключает hook useCart, регистрирует service worker (PWA) и связывает Header, CartDrawer и ProductsPage, управляя состоянием открытия корзины."
+    },
+    "file:src/components/CartDrawer.jsx": {
+      "name": "CartDrawer.jsx",
+      "type": "file",
+      "summary": "Компонент выезжающей панели корзины: отображает список товаров с количеством и итогом, предоставляет кнопки увеличения, уменьшения и удаления позиций через переданные props-колбэки."
+    },
+    "file:src/components/Header.jsx": {
+      "name": "Header.jsx",
+      "type": "file",
+      "summary": "Компонент верхней шапки приложения: отображает логотип, счётчик товаров корзины и кнопку открытия панели корзины."
+    },
+    "file:src/hooks/useCart.js": {
+      "name": "useCart.js",
+      "type": "file",
+      "summary": "Центральный hook управления корзиной: синхронизирует состояние между вкладками через SharedWorker, сохраняет данные в localStorage и предоставляет операции добавления, удаления, изменения количества и очистки с отслеживанием статуса сети."
+    },
+    "file:src/index.js": {
+      "name": "index.js",
+      "type": "file",
+      "summary": "Точка входа приложения: монтирует корневой компонент App в DOM через ReactDOM.createRoot."
+    },
+    "file:src/components/AddToCartButton.jsx": {
+      "name": "AddToCartButton.jsx",
+      "type": "file",
+      "summary": "React-компонент кнопки «Добавить в корзину», вызывающий колбэк onAdd с товаром и отключающийся при отсутствии товара в наличии."
+    },
+    "file:src/data/products.js": {
+      "name": "products.js",
+      "type": "file",
+      "summary": "Статический набор данных каталога товаров (экспорт products), используемый хуком useProducts как локальный fallback при недоступности mock API."
+    },
+    "file:src/hooks/useProducts.js": {
+      "name": "useProducts.js",
+      "type": "file",
+      "summary": "Кастомный React hook, загружающий список товаров через fetch (mock API) с переключением статусов loading/fallback и откатом на локальные данные из data/products.js."
+    },
+    "file:src/pages/ProductsPage.jsx": {
+      "name": "ProductsPage.jsx",
+      "type": "file",
+      "summary": "Страница каталога: получает товары через useProducts, отображает карточки с рейтингом, ценой и наличием, и рендерит AddToCartButton для добавления в корзину."
+    },
+    "config:package.json": {
+      "name": "package.json",
+      "type": "config",
+      "summary": "npm-манифест проекта Create React App: задаёт зависимости (React 19, react-router-dom v6), скрипты сборки/запуска и конфигурацию ESLint и browserslist."
+    },
+    "config:public/api/products.json": {
+      "name": "products.json",
+      "type": "config",
+      "summary": "Mock-данные товаров, отдаваемые как статический API-эндпоинт для каталога магазина."
+    },
+    "file:public/cart-shared-worker.js": {
+      "name": "cart-shared-worker.js",
+      "type": "file",
+      "summary": "SharedWorker, синхронизирующий состояние корзины между вкладками браузера: хранит список товаров, обрабатывает подключения портов и рассылает обновления всем вкладкам."
+    },
+    "file:public/index.html": {
+      "name": "index.html",
+      "type": "file",
+      "summary": "HTML-оболочка приложения Create React App с корневым элементом #root и ссылкой на manifest для монтирования React-приложения."
+    },
+    "config:public/manifest.json": {
+      "name": "manifest.json",
+      "type": "config",
+      "summary": "PWA-manifest, описывающий имя приложения, иконки, стартовый URL, режим отображения и цвета темы для установки как Progressive Web App."
+    },
+    "file:public/service-worker.js": {
+      "name": "service-worker.js",
+      "type": "file",
+      "summary": "PWA service worker, реализующий жизненный цикл install/activate/fetch и несколько стратегий кеширования (cache-first, network-first, stale-while-revalidate) для офлайн-работы."
+    },
+    "document:README.md": {
+      "name": "README.md",
+      "type": "document",
+      "summary": "Минимальная документация проекта на основе шаблона Create React App с описанием доступных npm-скриптов."
+    },
+    "file:src/App.css": {
+      "name": "App.css",
+      "type": "file",
+      "summary": "Основные стили приложения: оформление шапки, навигации, карточек товаров, корзины и общих UI-элементов в стиле Ozon."
+    },
+    "file:src/index.css": {
+      "name": "index.css",
+      "type": "file",
+      "summary": "Глобальные базовые стили: сброс отступов, шрифты и оформление body для всего приложения."
+    },
+    "file:src/pages/ProductsPage_addition/ProductsPage.css": {
+      "name": "ProductsPage.css",
+      "type": "file",
+      "summary": "Стили страницы каталога товаров: сетка карточек, кнопки и элементы управления количеством."
+    }
+  },
+  "totalNodes": 19,
+  "totalEdges": 52
+}

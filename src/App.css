@@ -68,6 +68,65 @@
   color: #005bff;
 }
 
+.header-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.status-badge::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.status-worker-connected {
+  color: #027a48;
+  background: #e6f6ee;
+}
+
+.status-worker-connecting {
+  color: #b54708;
+  background: #fdf0e3;
+}
+
+.status-worker-unsupported,
+.status-worker-error {
+  color: #b42318;
+  background: #fdecec;
+}
+
+.status-online {
+  color: #027a48;
+  background: #e6f6ee;
+}
+
+.status-offline {
+  color: #b42318;
+  background: #fdecec;
+}
+
+@media (max-width: 860px) {
+  .status-badge {
+    font-size: 11px;
+    padding: 3px 8px;
+  }
+}
+
 .cart-count {
   display: inline-flex;
   align-items: center;

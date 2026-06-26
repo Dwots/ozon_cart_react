@@ -17,27 +17,47 @@ function saveCart(cart) {
 
 export function useCart() {
   const [cart, setCart] = useState(getSavedCart);
+  const [isOnline, setIsOnline] = useState(
+    typeof navigator !== 'undefined' ? navigator.onLine : true
+  );
+  const [workerStatus, setWorkerStatus] = useState(
+    typeof window !== 'undefined' && window.SharedWorker ? 'connecting' : 'unsupported'
+  );
   const portRef = useRef(null);
 
   useEffect(() => {
     if (!window.SharedWorker) {
+      setWorkerStatus('unsupported');
       return;
     }
 
     const savedCart = getSavedCart();
     const workerUrl = `${process.env.PUBLIC_URL}/cart-shared-worker.js`;
-    const worker = new SharedWorker(workerUrl);
-    const port = worker.port;
 
+    let worker;
+    try {
+      worker = new SharedWorker(workerUrl);
+    } catch {
+      setWorkerStatus('error');
+      return;
+    }
+
+    const port = worker.port;
     portRef.current = port;
 
     port.onmessage = function (event) {
       const message = event.data;
 
       if (message.type === 'CART_UPDATED') {
+        // Любой ответ от воркера означает, что соединение установлено.
+        setWorkerStatus('connected');
         setCart(message.cart);
         saveCart(message.cart);
       }
+    };
+
+    worker.onerror = function () {
+      setWorkerStatus('error');
     };
 
     port.start();
@@ -51,6 +71,31 @@ export function useCart() {
       port.postMessage({ type: 'DISCONNECT' });
       port.close();
       portRef.current = null;
+    };
+  }, []);
+
+  // Отслеживание статуса сети + ресинхронизация при восстановлении соединения.
+  useEffect(() => {
+    function handleOnline() {
+      setIsOnline(true);
+
+      // При восстановлении соединения заново запрашиваем актуальную корзину
+      // у SharedWorker (единый источник правды между вкладками).
+      if (portRef.current) {
+        portRef.current.postMessage({ type: 'GET_CART' });
+      }
+    }
+
+    function handleOffline() {
+      setIsOnline(false);
+    }
+
+    window.addEventListener('online', handleOnline);
+    window.addEventListener('offline', handleOffline);
+
+    return () => {
+      window.removeEventListener('online', handleOnline);
+      window.removeEventListener('offline', handleOffline);
     };
   }, []);
 
@@ -165,6 +210,8 @@ export function useCart() {
     cart,
     totalCount,
     totalPrice,
+    isOnline,
+    workerStatus,
     addToCart,
     removeFromCart,
     decreaseItem,

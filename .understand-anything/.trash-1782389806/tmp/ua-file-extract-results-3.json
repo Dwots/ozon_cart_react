@@ -1,0 +1,573 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 10,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "package.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 41,
+      "nonEmptyLines": 41,
+      "sections": [
+        {
+          "heading": "name",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "version",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "private",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "dependencies",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "scripts",
+          "level": 1,
+          "line": 17
+        },
+        {
+          "heading": "eslintConfig",
+          "level": 1,
+          "line": 23
+        },
+        {
+          "heading": "browserslist",
+          "level": 1,
+          "line": 29
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 7
+      }
+    },
+    {
+      "path": "public/api/products.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 10,
+      "nonEmptyLines": 10,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 0
+      }
+    },
+    {
+      "path": "public/cart-shared-worker.js",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 126,
+      "nonEmptyLines": 103,
+      "functions": [
+        {
+          "name": "sendCartToPort",
+          "startLine": 5,
+          "endLine": 10,
+          "params": [
+            "port"
+          ]
+        },
+        {
+          "name": "broadcastCart",
+          "startLine": 12,
+          "endLine": 16,
+          "params": []
+        },
+        {
+          "name": "addItem",
+          "startLine": 18,
+          "endLine": 41,
+          "params": [
+            "product"
+          ]
+        },
+        {
+          "name": "removeItem",
+          "startLine": 43,
+          "endLine": 45,
+          "params": [
+            "productId"
+          ]
+        },
+        {
+          "name": "decreaseItem",
+          "startLine": 47,
+          "endLine": 60,
+          "params": [
+            "productId"
+          ]
+        },
+        {
+          "name": "clearCart",
+          "startLine": 62,
+          "endLine": 64,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "sendCartToPort",
+          "callee": "port.postMessage",
+          "lineNumber": 6
+        },
+        {
+          "caller": "broadcastCart",
+          "callee": "ports.forEach",
+          "lineNumber": 13
+        },
+        {
+          "caller": "broadcastCart",
+          "callee": "sendCartToPort",
+          "lineNumber": 14
+        },
+        {
+          "caller": "addItem",
+          "callee": "cart.find",
+          "lineNumber": 19
+        },
+        {
+          "caller": "addItem",
+          "callee": "cart.map",
+          "lineNumber": 22
+        },
+        {
+          "caller": "removeItem",
+          "callee": "cart.filter",
+          "lineNumber": 44
+        },
+        {
+          "caller": "decreaseItem",
+          "callee": "cart\r\n    .map((item) => {\r\n      if (item.id === productId) {\r\n        return {\r\n          ...item,\r\n          quantity: item.quantity - 1,\r\n        };\r\n      }\r\n\r\n      return item;\r\n    })\r\n    .filter",
+          "lineNumber": 48
+        },
+        {
+          "caller": "decreaseItem",
+          "callee": "cart\r\n    .map",
+          "lineNumber": 48
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 6,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "public/index.html",
+      "language": "html",
+      "fileCategory": "markup",
+      "totalLines": 14,
+      "nonEmptyLines": 14,
+      "metrics": {}
+    },
+    {
+      "path": "public/manifest.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 25,
+      "nonEmptyLines": 25,
+      "sections": [
+        {
+          "heading": "short_name",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "name",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "icons",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "start_url",
+          "level": 1,
+          "line": 21
+        },
+        {
+          "heading": "display",
+          "level": 1,
+          "line": 22
+        },
+        {
+          "heading": "theme_color",
+          "level": 1,
+          "line": 23
+        },
+        {
+          "heading": "background_color",
+          "level": 1,
+          "line": 24
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 7
+      }
+    },
+    {
+      "path": "public/service-worker.js",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 211,
+      "nonEmptyLines": 170,
+      "functions": [
+        {
+          "name": "precache",
+          "startLine": 16,
+          "endLine": 50,
+          "params": []
+        },
+        {
+          "name": "isImage",
+          "startLine": 73,
+          "endLine": 79,
+          "params": [
+            "request"
+          ]
+        },
+        {
+          "name": "cleanResponse",
+          "startLine": 83,
+          "endLine": 95,
+          "params": [
+            "response"
+          ]
+        },
+        {
+          "name": "cacheFirst",
+          "startLine": 98,
+          "endLine": 117,
+          "params": [
+            "request",
+            "cacheName"
+          ]
+        },
+        {
+          "name": "networkFirst",
+          "startLine": 120,
+          "endLine": 150,
+          "params": [
+            "request",
+            "cacheName"
+          ]
+        },
+        {
+          "name": "staleWhileRevalidate",
+          "startLine": 153,
+          "endLine": 168,
+          "params": [
+            "request",
+            "cacheName"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "precache",
+          "callee": "caches.open",
+          "lineNumber": 17
+        },
+        {
+          "caller": "precache",
+          "callee": "staticCache.addAll",
+          "lineNumber": 18
+        },
+        {
+          "caller": "precache",
+          "callee": "fetch",
+          "lineNumber": 22
+        },
+        {
+          "caller": "precache",
+          "callee": "manifestResponse.json",
+          "lineNumber": 25
+        },
+        {
+          "caller": "precache",
+          "callee": "(manifest.entrypoints || []).map",
+          "lineNumber": 26
+        },
+        {
+          "caller": "precache",
+          "callee": "staticCache.addAll",
+          "lineNumber": 27
+        },
+        {
+          "caller": "precache",
+          "callee": "caches.open",
+          "lineNumber": 35
+        },
+        {
+          "caller": "precache",
+          "callee": "fetch",
+          "lineNumber": 36
+        },
+        {
+          "caller": "precache",
+          "callee": "dataCache.put",
+          "lineNumber": 39
+        },
+        {
+          "caller": "precache",
+          "callee": "productsResponse.clone",
+          "lineNumber": 39
+        },
+        {
+          "caller": "precache",
+          "callee": "productsResponse.json",
+          "lineNumber": 41
+        },
+        {
+          "caller": "precache",
+          "callee": "caches.open",
+          "lineNumber": 42
+        },
+        {
+          "caller": "precache",
+          "callee": "products.map((item) => item.link).filter",
+          "lineNumber": 43
+        },
+        {
+          "caller": "precache",
+          "callee": "products.map",
+          "lineNumber": 43
+        },
+        {
+          "caller": "precache",
+          "callee": "Promise.all",
+          "lineNumber": 45
+        },
+        {
+          "caller": "precache",
+          "callee": "links.map",
+          "lineNumber": 45
+        },
+        {
+          "caller": "precache",
+          "callee": "imageCache.add(link).catch",
+          "lineNumber": 45
+        },
+        {
+          "caller": "precache",
+          "callee": "imageCache.add",
+          "lineNumber": 45
+        },
+        {
+          "caller": "isImage",
+          "callee": "/\\.(png|jpe?g|gif|svg|webp|ico)$/i.test",
+          "lineNumber": 78
+        },
+        {
+          "caller": "cleanResponse",
+          "callee": "response.blob",
+          "lineNumber": 88
+        },
+        {
+          "caller": "cacheFirst",
+          "callee": "caches.match",
+          "lineNumber": 99
+        },
+        {
+          "caller": "cacheFirst",
+          "callee": "fetch",
+          "lineNumber": 106
+        },
+        {
+          "caller": "cacheFirst",
+          "callee": "caches.open",
+          "lineNumber": 109
+        },
+        {
+          "caller": "cacheFirst",
+          "callee": "cache.put",
+          "lineNumber": 110
+        },
+        {
+          "caller": "cacheFirst",
+          "callee": "response.clone",
+          "lineNumber": 110
+        },
+        {
+          "caller": "cacheFirst",
+          "callee": "Response.error",
+          "lineNumber": 115
+        },
+        {
+          "caller": "networkFirst",
+          "callee": "caches.open",
+          "lineNumber": 121
+        },
+        {
+          "caller": "networkFirst",
+          "callee": "fetch",
+          "lineNumber": 125
+        },
+        {
+          "caller": "networkFirst",
+          "callee": "cache.put",
+          "lineNumber": 128
+        },
+        {
+          "caller": "networkFirst",
+          "callee": "response.clone",
+          "lineNumber": 128
+        },
+        {
+          "caller": "networkFirst",
+          "callee": "cleanResponse",
+          "lineNumber": 131
+        },
+        {
+          "caller": "networkFirst",
+          "callee": "cache.match",
+          "lineNumber": 133
+        },
+        {
+          "caller": "networkFirst",
+          "callee": "cleanResponse",
+          "lineNumber": 136
+        },
+        {
+          "caller": "networkFirst",
+          "callee": "caches.match",
+          "lineNumber": 141
+        },
+        {
+          "caller": "networkFirst",
+          "callee": "caches.match",
+          "lineNumber": 141
+        },
+        {
+          "caller": "networkFirst",
+          "callee": "cleanResponse",
+          "lineNumber": 144
+        },
+        {
+          "caller": "networkFirst",
+          "callee": "Response.error",
+          "lineNumber": 148
+        },
+        {
+          "caller": "staleWhileRevalidate",
+          "callee": "caches.open",
+          "lineNumber": 154
+        },
+        {
+          "caller": "staleWhileRevalidate",
+          "callee": "cache.match",
+          "lineNumber": 155
+        },
+        {
+          "caller": "staleWhileRevalidate",
+          "callee": "fetch(request)\n    .then((response) => {\n      if (response && response.ok) {\n        cache.put(request, response.clone());\n      }\n\n      return response;\n    })\n    .catch",
+          "lineNumber": 157
+        },
+        {
+          "caller": "staleWhileRevalidate",
+          "callee": "fetch(request)\n    .then",
+          "lineNumber": 157
+        },
+        {
+          "caller": "staleWhileRevalidate",
+          "callee": "fetch",
+          "lineNumber": 157
+        },
+        {
+          "caller": "staleWhileRevalidate",
+          "callee": "cache.put",
+          "lineNumber": 160
+        },
+        {
+          "caller": "staleWhileRevalidate",
+          "callee": "response.clone",
+          "lineNumber": 160
+        },
+        {
+          "caller": "staleWhileRevalidate",
+          "callee": "Response.error",
+          "lineNumber": 167
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 6,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 7,
+      "nonEmptyLines": 5,
+      "sections": [
+        {
+          "heading": "React App",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Скрипты",
+          "level": 2,
+          "line": 3
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": "src/App.css",
+      "language": "css",
+      "fileCategory": "markup",
+      "totalLines": 281,
+      "nonEmptyLines": 246,
+      "metrics": {}
+    },
+    {
+      "path": "src/index.css",
+      "language": "css",
+      "fileCategory": "markup",
+      "totalLines": 13,
+      "nonEmptyLines": 12,
+      "metrics": {}
+    },
+    {
+      "path": "src/pages/ProductsPage_addition/ProductsPage.css",
+      "language": "css",
+      "fileCategory": "markup",
+      "totalLines": 99,
+      "nonEmptyLines": 83,
+      "metrics": {}
+    }
+  ]
+}

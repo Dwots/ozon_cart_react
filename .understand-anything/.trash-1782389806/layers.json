@@ -1,0 +1,77 @@
+[
+  {
+    "id": "layer:entry",
+    "name": "Точка входа и App shell",
+    "description": "Загрузка React-приложения: монтирование корневого компонента App, HTML-оболочка SPA и регистрация service worker.",
+    "nodeIds": [
+      "file:src/index.js",
+      "file:src/App.js",
+      "file:public/index.html"
+    ]
+  },
+  {
+    "id": "layer:ui",
+    "name": "UI-компоненты",
+    "description": "Презентационные React-компоненты интерфейса: шапка, выезжающая панель корзины и кнопка добавления товара.",
+    "nodeIds": [
+      "file:src/components/CartDrawer.jsx",
+      "file:src/components/Header.jsx",
+      "file:src/components/AddToCartButton.jsx"
+    ]
+  },
+  {
+    "id": "layer:pages",
+    "name": "Страницы",
+    "description": "Страничные React-компоненты, привязанные к маршрутам router: страница каталога товаров.",
+    "nodeIds": [
+      "file:src/pages/ProductsPage.jsx"
+    ]
+  },
+  {
+    "id": "layer:state",
+    "name": "State и data hooks",
+    "description": "Кастомные React hooks управления состоянием: корзина с синхронизацией через SharedWorker и localStorage, загрузка товаров через fetch.",
+    "nodeIds": [
+      "file:src/hooks/useCart.js",
+      "file:src/hooks/useProducts.js"
+    ]
+  },
+  {
+    "id": "layer:data",
+    "name": "Данные и mock API",
+    "description": "Статический каталог товаров и mock-эндпоинт products.json, используемые как источник данных и fallback.",
+    "nodeIds": [
+      "file:src/data/products.js",
+      "config:public/api/products.json"
+    ]
+  },
+  {
+    "id": "layer:workers",
+    "name": "Web workers (фоновые и PWA)",
+    "description": "Фоновые скрипты: SharedWorker синхронизации корзины между вкладками и PWA service worker с офлайн-кешированием.",
+    "nodeIds": [
+      "file:public/cart-shared-worker.js",
+      "file:public/service-worker.js"
+    ]
+  },
+  {
+    "id": "layer:styles",
+    "name": "Стили",
+    "description": "CSS-стили приложения: глобальные базовые стили, оформление в стиле Ozon и стили страницы каталога.",
+    "nodeIds": [
+      "file:src/App.css",
+      "file:src/index.css",
+      "file:src/pages/ProductsPage_addition/ProductsPage.css"
+    ]
+  },
+  {
+    "id": "layer:config",
+    "name": "Конфигурация и документация",
+    "description": "Манифесты и документация проекта: npm-манифест Create React App, PWA-manifest и README.",
+    "nodeIds": [
+      "config:package.json",
+      "config:public/manifest.json",
+      "document:README.md"
+    ]
+  }
+]

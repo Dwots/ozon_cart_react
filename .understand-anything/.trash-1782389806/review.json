@@ -1,0 +1,28 @@
+{
+  "issues": [],
+  "warnings": [
+    "Node 'document:README.md' has no edges (orphan)",
+    "Node 'file:src/index.css' has no edges (orphan)"
+  ],
+  "stats": {
+    "totalNodes": 42,
+    "totalEdges": 52,
+    "totalLayers": 8,
+    "tourSteps": 12,
+    "nodeTypes": {
+      "file": 15,
+      "function": 23,
+      "config": 3,
+      "document": 1
+    },
+    "edgeTypes": {
+      "imports": 10,
+      "contains": 23,
+      "exports": 6,
+      "calls": 6,
+      "depends_on": 2,
+      "related": 3,
+      "configures": 2
+    }
+  }
+}

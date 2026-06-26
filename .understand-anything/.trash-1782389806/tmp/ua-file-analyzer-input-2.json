@@ -1,0 +1,15 @@
+{
+  "projectRoot": "C:/Users/kirill/Documents/vscode/FigZnaet/Exams/JS/src/ozon_cart_react",
+  "batchFiles": [
+    {"path": "src/components/AddToCartButton.jsx", "language": "javascript", "sizeLines": 11, "fileCategory": "code"},
+    {"path": "src/data/products.js", "language": "javascript", "sizeLines": 66, "fileCategory": "code"},
+    {"path": "src/hooks/useProducts.js", "language": "javascript", "sizeLines": 48, "fileCategory": "code"},
+    {"path": "src/pages/ProductsPage.jsx", "language": "javascript", "sizeLines": 55, "fileCategory": "code"}
+  ],
+  "batchImportData": {
+    "src/components/AddToCartButton.jsx": [],
+    "src/data/products.js": [],
+    "src/hooks/useProducts.js": ["src/data/products.js"],
+    "src/pages/ProductsPage.jsx": ["src/components/AddToCartButton.jsx", "src/hooks/useProducts.js", "src/pages/ProductsPage_addition/ProductsPage.css"]
+  }
+}

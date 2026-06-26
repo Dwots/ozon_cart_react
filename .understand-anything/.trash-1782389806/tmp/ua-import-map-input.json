@@ -1,0 +1,26 @@
+{
+  "projectRoot": "C:/Users/kirill/Documents/vscode/FigZnaet/Exams/JS/src/ozon_cart_react",
+  "files": [
+    {"path": ".understand-anything/.understandignore", "language": "unknown", "fileCategory": "code"},
+    {"path": ".understand-anything/config.json", "language": "json", "fileCategory": "config"},
+    {"path": "package.json", "language": "json", "fileCategory": "config"},
+    {"path": "public/api/products.json", "language": "json", "fileCategory": "config"},
+    {"path": "public/cart-shared-worker.js", "language": "javascript", "fileCategory": "code"},
+    {"path": "public/index.html", "language": "html", "fileCategory": "markup"},
+    {"path": "public/manifest.json", "language": "json", "fileCategory": "config"},
+    {"path": "public/service-worker.js", "language": "javascript", "fileCategory": "code"},
+    {"path": "README.md", "language": "markdown", "fileCategory": "docs"},
+    {"path": "src/App.css", "language": "css", "fileCategory": "markup"},
+    {"path": "src/App.js", "language": "javascript", "fileCategory": "code"},
+    {"path": "src/components/AddToCartButton.jsx", "language": "javascript", "fileCategory": "code"},
+    {"path": "src/components/CartDrawer.jsx", "language": "javascript", "fileCategory": "code"},
+    {"path": "src/components/Header.jsx", "language": "javascript", "fileCategory": "code"},
+    {"path": "src/data/products.js", "language": "javascript", "fileCategory": "code"},
+    {"path": "src/hooks/useCart.js", "language": "javascript", "fileCategory": "code"},
+    {"path": "src/hooks/useProducts.js", "language": "javascript", "fileCategory": "code"},
+    {"path": "src/index.css", "language": "css", "fileCategory": "markup"},
+    {"path": "src/index.js", "language": "javascript", "fileCategory": "code"},
+    {"path": "src/pages/ProductsPage_addition/ProductsPage.css", "language": "css", "fileCategory": "markup"},
+    {"path": "src/pages/ProductsPage.jsx", "language": "javascript", "fileCategory": "code"}
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "fixedSectionOk": true,
+  "nodesRecovered": 0,
+  "edgesRestored": 0,
+  "crossBatchEdgesAdded": 0,
+  "typesRemapped": 0,
+  "complexityRemapped": 0,
+  "notes": [
+    "Раздел 'Fixed' пуст: вход и выход совпадают (42 узла, 52 ребра). Скрипт не применял механических исправлений — все ID в батчах изначально корректны (правильные префиксы file:/function:/config:/document:, без двойных префиксов и project-name).",
+    "Раздел 'Could not fix' пуст: нет узлов без id, нет неизвестных типов, нет неизвестных значений complexity, нет отброшенных висячих рёбер.",
+    "Проверка ссылочной целостности пройдена: 42 уникальных id, висячих рёбер нет, дубликатов узлов и рёбер нет.",
+    "Значения complexity только из набора {simple, moderate, complex}; типы узлов только из валидного набора (file, function, config, document).",
+    "Кросс-батчевые пробелы по importMap отсутствуют: все 10 import-связей из 4 файлов-источников (src/App.js x5, src/index.js x1, src/hooks/useProducts.js x1, src/pages/ProductsPage.jsx x3) уже представлены рёбрами type='imports' в собранном графе. Добавлять нечего.",
+    "Отчёт скрипта 'Recovered 0 imports edges from importMap (21 entries scanned)' корректен: рёбра уже существовали в батчах, поэтому восстановление не потребовалось.",
+    "Воркеры public/cart-shared-worker.js и public/service-worker.js корректно смоделированы рёбрами type='related' (а не imports), так как регистрируются браузером в рантайме, а не импортируются статически — соответствует ожидаемой модели."
+  ]
+}

@@ -1,0 +1,1251 @@
+{
+  "version": "1.0.0",
+  "project": {
+    "name": "ozon_cart_react",
+    "languages": [
+      "javascript",
+      "css",
+      "html",
+      "json",
+      "markdown"
+    ],
+    "frameworks": [
+      "React",
+      "React Router",
+      "Create React App"
+    ],
+    "description": "Ozon-подобный интерфейс корзины интернет-магазина на React 19 + react-router-dom v6 (Create React App). Состояние корзины синхронизируется между вкладками через SharedWorker, есть PWA service worker с офлайн-кешированием.",
+    "analyzedAt": "2026-06-25T12:15:29.342Z",
+    "gitCommitHash": "5d9577b46d0608e1a74f51bf7ecbbc96c33d3f6c"
+  },
+  "nodes": [
+    {
+      "id": "file:src/App.js",
+      "type": "file",
+      "name": "App.js",
+      "filePath": "src/App.js",
+      "summary": "Корневой компонент приложения: подключает hook useCart, регистрирует service worker (PWA) и связывает Header, CartDrawer и ProductsPage, управляя состоянием открытия корзины.",
+      "tags": [
+        "entry-point",
+        "component",
+        "router",
+        "pwa",
+        "state"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/App.js:App",
+      "type": "function",
+      "name": "App",
+      "filePath": "src/App.js",
+      "lineRange": [
+        10,
+        60
+      ],
+      "summary": "Главный функциональный компонент: хранит флаг isCartOpen, получает данные корзины через useCart, регистрирует service worker в useEffect и рендерит Header, ProductsPage и CartDrawer.",
+      "tags": [
+        "component",
+        "entry-point",
+        "state",
+        "pwa",
+        "hook"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/components/CartDrawer.jsx",
+      "type": "file",
+      "name": "CartDrawer.jsx",
+      "filePath": "src/components/CartDrawer.jsx",
+      "summary": "Компонент выезжающей панели корзины: отображает список товаров с количеством и итогом, предоставляет кнопки увеличения, уменьшения и удаления позиций через переданные props-колбэки.",
+      "tags": [
+        "component",
+        "ui",
+        "cart",
+        "presentational"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/components/CartDrawer.jsx:CartDrawer",
+      "type": "function",
+      "name": "CartDrawer",
+      "filePath": "src/components/CartDrawer.jsx",
+      "lineRange": [
+        1,
+        58
+      ],
+      "summary": "Функциональный компонент панели корзины: маппит массив cart в строки товаров и вызывает onAdd, onDecrease и onRemove по действиям пользователя.",
+      "tags": [
+        "component",
+        "ui",
+        "cart",
+        "event-handler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/components/Header.jsx",
+      "type": "file",
+      "name": "Header.jsx",
+      "filePath": "src/components/Header.jsx",
+      "summary": "Компонент верхней шапки приложения: отображает логотип, счётчик товаров корзины и кнопку открытия панели корзины.",
+      "tags": [
+        "component",
+        "ui",
+        "header",
+        "presentational"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/components/Header.jsx:Header",
+      "type": "function",
+      "name": "Header",
+      "filePath": "src/components/Header.jsx",
+      "lineRange": [
+        10,
+        37
+      ],
+      "summary": "Функциональный компонент шапки: показывает количество товаров (totalCount) и вызывает колбэк открытия корзины по клику.",
+      "tags": [
+        "component",
+        "ui",
+        "header",
+        "event-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/hooks/useCart.js",
+      "type": "file",
+      "name": "useCart.js",
+      "filePath": "src/hooks/useCart.js",
+      "summary": "Центральный hook управления корзиной: синхронизирует состояние между вкладками через SharedWorker, сохраняет данные в localStorage и предоставляет операции добавления, удаления, изменения количества и очистки с отслеживанием статуса сети.",
+      "tags": [
+        "hook",
+        "state",
+        "cart",
+        "shared-worker",
+        "persistence"
+      ],
+      "complexity": "complex",
+      "languageNotes": "Hook сочетает несколько useEffect для жизненного цикла SharedWorker и слушателей online/offline, useRef для хранения порта воркера и useMemo для производных значений (totalPrice, totalCount)."
+    },
+    {
+      "id": "function:src/hooks/useCart.js:useCart",
+      "type": "function",
+      "name": "useCart",
+      "filePath": "src/hooks/useCart.js",
+      "lineRange": [
+        18,
+        220
+      ],
+      "summary": "Экспортируемый hook корзины: инициализирует state из localStorage, подключается к SharedWorker для межвкладочной синхронизации, обрабатывает события сети и возвращает API корзины (cart, totalCount, totalPrice, addToCart, removeFromCart, decreaseItem, clearCart).",
+      "tags": [
+        "hook",
+        "state",
+        "cart",
+        "shared-worker",
+        "persistence"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/hooks/useCart.js:getSavedCart",
+      "type": "function",
+      "name": "getSavedCart",
+      "filePath": "src/hooks/useCart.js",
+      "lineRange": [
+        5,
+        12
+      ],
+      "summary": "Читает сохранённую корзину из localStorage и безопасно парсит JSON, возвращая пустой массив при ошибке или отсутствии данных.",
+      "tags": [
+        "utility",
+        "persistence",
+        "serialization",
+        "cart"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/hooks/useCart.js:updateLocalCart",
+      "type": "function",
+      "name": "updateLocalCart",
+      "filePath": "src/hooks/useCart.js",
+      "lineRange": [
+        102,
+        131
+      ],
+      "summary": "Локальный fallback добавления товара (без воркера): увеличивает количество существующей позиции либо добавляет новую и сохраняет результат в localStorage.",
+      "tags": [
+        "cart",
+        "state",
+        "persistence",
+        "fallback"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/hooks/useCart.js:addToCart",
+      "type": "function",
+      "name": "addToCart",
+      "filePath": "src/hooks/useCart.js",
+      "lineRange": [
+        133,
+        143
+      ],
+      "summary": "Добавляет товар в корзину: при наличии порта SharedWorker отправляет сообщение ADD_ITEM, иначе выполняет локальное обновление через updateLocalCart.",
+      "tags": [
+        "cart",
+        "shared-worker",
+        "event-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/hooks/useCart.js:removeFromCart",
+      "type": "function",
+      "name": "removeFromCart",
+      "filePath": "src/hooks/useCart.js",
+      "lineRange": [
+        145,
+        159
+      ],
+      "summary": "Удаляет позицию корзины по id: отправляет REMOVE_ITEM воркеру либо локально фильтрует массив и сохраняет в localStorage.",
+      "tags": [
+        "cart",
+        "shared-worker",
+        "event-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/hooks/useCart.js:decreaseItem",
+      "type": "function",
+      "name": "decreaseItem",
+      "filePath": "src/hooks/useCart.js",
+      "lineRange": [
+        161,
+        187
+      ],
+      "summary": "Уменьшает количество товара на единицу: отправляет DECREASE_ITEM воркеру либо локально уменьшает quantity и удаляет позицию при достижении нуля.",
+      "tags": [
+        "cart",
+        "shared-worker",
+        "event-handler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/hooks/useCart.js:clearCart",
+      "type": "function",
+      "name": "clearCart",
+      "filePath": "src/hooks/useCart.js",
+      "lineRange": [
+        189,
+        199
+      ],
+      "summary": "Полностью очищает корзину: отправляет CLEAR_CART воркеру либо локально сбрасывает state и localStorage.",
+      "tags": [
+        "cart",
+        "shared-worker",
+        "event-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/index.js",
+      "type": "file",
+      "name": "index.js",
+      "filePath": "src/index.js",
+      "summary": "Точка входа приложения: монтирует корневой компонент App в DOM через ReactDOM.createRoot.",
+      "tags": [
+        "entry-point",
+        "bootstrap",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/components/AddToCartButton.jsx",
+      "type": "file",
+      "name": "AddToCartButton.jsx",
+      "filePath": "src/components/AddToCartButton.jsx",
+      "summary": "React-компонент кнопки «Добавить в корзину», вызывающий колбэк onAdd с товаром и отключающийся при отсутствии товара в наличии.",
+      "tags": [
+        "component",
+        "ui",
+        "event-handler",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/data/products.js",
+      "type": "file",
+      "name": "products.js",
+      "filePath": "src/data/products.js",
+      "summary": "Статический набор данных каталога товаров (экспорт products), используемый хуком useProducts как локальный fallback при недоступности mock API.",
+      "tags": [
+        "data-model",
+        "fixtures",
+        "catalog",
+        "fallback"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/hooks/useProducts.js",
+      "type": "file",
+      "name": "useProducts.js",
+      "filePath": "src/hooks/useProducts.js",
+      "summary": "Кастомный React hook, загружающий список товаров через fetch (mock API) с переключением статусов loading/fallback и откатом на локальные данные из data/products.js.",
+      "tags": [
+        "hook",
+        "data-fetching",
+        "react",
+        "state-management"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Использует useState/useEffect для асинхронной загрузки с обработкой ошибок и fallback-логикой."
+    },
+    {
+      "id": "file:src/pages/ProductsPage.jsx",
+      "type": "file",
+      "name": "ProductsPage.jsx",
+      "filePath": "src/pages/ProductsPage.jsx",
+      "summary": "Страница каталога: получает товары через useProducts, отображает карточки с рейтингом, ценой и наличием, и рендерит AddToCartButton для добавления в корзину.",
+      "tags": [
+        "component",
+        "page",
+        "catalog",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/components/AddToCartButton.jsx:AddToCartButton",
+      "type": "function",
+      "name": "AddToCartButton",
+      "filePath": "src/components/AddToCartButton.jsx",
+      "lineRange": [
+        2,
+        9
+      ],
+      "summary": "Функциональный компонент, рендерящий кнопку добавления товара в корзину с обработкой состояния disabled.",
+      "tags": [
+        "component",
+        "ui",
+        "event-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/hooks/useProducts.js:useProducts",
+      "type": "function",
+      "name": "useProducts",
+      "filePath": "src/hooks/useProducts.js",
+      "lineRange": [
+        11,
+        48
+      ],
+      "summary": "Hook, инициализирующий состояние товаров и статуса, асинхронно загружающий данные через fetch и возвращающий products и status с fallback на локальные данные.",
+      "tags": [
+        "hook",
+        "data-fetching",
+        "state-management"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/pages/ProductsPage.jsx:ProductsPage",
+      "type": "function",
+      "name": "ProductsPage",
+      "filePath": "src/pages/ProductsPage.jsx",
+      "lineRange": [
+        5,
+        53
+      ],
+      "summary": "Компонент страницы каталога, отображающий состояния загрузки/fallback и список карточек товаров с кнопками добавления в корзину.",
+      "tags": [
+        "component",
+        "page",
+        "catalog"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:package.json",
+      "type": "config",
+      "name": "package.json",
+      "filePath": "package.json",
+      "summary": "npm-манифест проекта Create React App: задаёт зависимости (React 19, react-router-dom v6), скрипты сборки/запуска и конфигурацию ESLint и browserslist.",
+      "tags": [
+        "configuration",
+        "build-system",
+        "npm",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:public/api/products.json",
+      "type": "config",
+      "name": "products.json",
+      "filePath": "public/api/products.json",
+      "summary": "Mock-данные товаров, отдаваемые как статический API-эндпоинт для каталога магазина.",
+      "tags": [
+        "data",
+        "mock",
+        "api-schema",
+        "products"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:public/cart-shared-worker.js",
+      "type": "file",
+      "name": "cart-shared-worker.js",
+      "filePath": "public/cart-shared-worker.js",
+      "summary": "SharedWorker, синхронизирующий состояние корзины между вкладками браузера: хранит список товаров, обрабатывает подключения портов и рассылает обновления всем вкладкам.",
+      "tags": [
+        "shared-worker",
+        "state-sync",
+        "cart",
+        "event-handler"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Использует self.onconnect и MessagePort (port.postMessage) для широковещательной рассылки состояния всем подключённым вкладкам."
+    },
+    {
+      "id": "function:public/cart-shared-worker.js:sendCartToPort",
+      "type": "function",
+      "name": "sendCartToPort",
+      "filePath": "public/cart-shared-worker.js",
+      "lineRange": [
+        5,
+        10
+      ],
+      "summary": "Отправляет текущее состояние корзины в указанный порт вкладки через postMessage.",
+      "tags": [
+        "messaging",
+        "cart",
+        "shared-worker"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:public/cart-shared-worker.js:broadcastCart",
+      "type": "function",
+      "name": "broadcastCart",
+      "filePath": "public/cart-shared-worker.js",
+      "lineRange": [
+        12,
+        16
+      ],
+      "summary": "Рассылает текущее состояние корзины всем подключённым портам (вкладкам) для синхронизации.",
+      "tags": [
+        "broadcast",
+        "state-sync",
+        "shared-worker"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:public/cart-shared-worker.js:addItem",
+      "type": "function",
+      "name": "addItem",
+      "filePath": "public/cart-shared-worker.js",
+      "lineRange": [
+        18,
+        41
+      ],
+      "summary": "Добавляет товар в корзину или увеличивает его количество, если он уже присутствует, после чего рассылает обновление.",
+      "tags": [
+        "cart",
+        "mutation",
+        "state-sync"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:public/cart-shared-worker.js:decreaseItem",
+      "type": "function",
+      "name": "decreaseItem",
+      "filePath": "public/cart-shared-worker.js",
+      "lineRange": [
+        47,
+        60
+      ],
+      "summary": "Уменьшает количество товара в корзине на единицу и удаляет позицию при достижении нуля.",
+      "tags": [
+        "cart",
+        "mutation",
+        "state-sync"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:public/index.html",
+      "type": "file",
+      "name": "index.html",
+      "filePath": "public/index.html",
+      "summary": "HTML-оболочка приложения Create React App с корневым элементом #root и ссылкой на manifest для монтирования React-приложения.",
+      "tags": [
+        "html",
+        "entry-point",
+        "shell",
+        "spa"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:public/manifest.json",
+      "type": "config",
+      "name": "manifest.json",
+      "filePath": "public/manifest.json",
+      "summary": "PWA-manifest, описывающий имя приложения, иконки, стартовый URL, режим отображения и цвета темы для установки как Progressive Web App.",
+      "tags": [
+        "configuration",
+        "pwa",
+        "manifest",
+        "deployment"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:public/service-worker.js",
+      "type": "file",
+      "name": "service-worker.js",
+      "filePath": "public/service-worker.js",
+      "summary": "PWA service worker, реализующий жизненный цикл install/activate/fetch и несколько стратегий кеширования (cache-first, network-first, stale-while-revalidate) для офлайн-работы.",
+      "tags": [
+        "service-worker",
+        "pwa",
+        "caching",
+        "offline"
+      ],
+      "complexity": "complex",
+      "languageNotes": "Регистрирует обработчики self.addEventListener('install'|'activate'|'fetch') и использует Cache Storage API с раздельными кешами для статики, данных и изображений."
+    },
+    {
+      "id": "function:public/service-worker.js:precache",
+      "type": "function",
+      "name": "precache",
+      "filePath": "public/service-worker.js",
+      "lineRange": [
+        16,
+        50
+      ],
+      "summary": "Предварительно кеширует статические ресурсы, точки входа из asset-manifest, данные товаров и связанные с ними изображения при установке service worker.",
+      "tags": [
+        "service-worker",
+        "caching",
+        "precache",
+        "install"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:public/service-worker.js:isImage",
+      "type": "function",
+      "name": "isImage",
+      "filePath": "public/service-worker.js",
+      "lineRange": [
+        73,
+        79
+      ],
+      "summary": "Определяет, является ли запрос запросом изображения по расширению URL.",
+      "tags": [
+        "service-worker",
+        "utility",
+        "request-matching"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:public/service-worker.js:cleanResponse",
+      "type": "function",
+      "name": "cleanResponse",
+      "filePath": "public/service-worker.js",
+      "lineRange": [
+        83,
+        95
+      ],
+      "summary": "Пересоздаёт Response из его blob, очищая служебные заголовки перед возвратом из кеша.",
+      "tags": [
+        "service-worker",
+        "utility",
+        "response"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:public/service-worker.js:cacheFirst",
+      "type": "function",
+      "name": "cacheFirst",
+      "filePath": "public/service-worker.js",
+      "lineRange": [
+        98,
+        117
+      ],
+      "summary": "Стратегия кеширования cache-first: возвращает ответ из кеша, при промахе обращается к сети и сохраняет результат.",
+      "tags": [
+        "service-worker",
+        "caching",
+        "cache-first",
+        "strategy"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:public/service-worker.js:networkFirst",
+      "type": "function",
+      "name": "networkFirst",
+      "filePath": "public/service-worker.js",
+      "lineRange": [
+        120,
+        150
+      ],
+      "summary": "Стратегия кеширования network-first: пытается получить свежий ответ из сети, при ошибке откатывается на кешированную версию.",
+      "tags": [
+        "service-worker",
+        "caching",
+        "network-first",
+        "strategy"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:public/service-worker.js:staleWhileRevalidate",
+      "type": "function",
+      "name": "staleWhileRevalidate",
+      "filePath": "public/service-worker.js",
+      "lineRange": [
+        153,
+        168
+      ],
+      "summary": "Стратегия stale-while-revalidate: немедленно отдаёт кешированный ответ, параллельно обновляя кеш свежим сетевым запросом.",
+      "tags": [
+        "service-worker",
+        "caching",
+        "stale-while-revalidate",
+        "strategy"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "README.md",
+      "summary": "Минимальная документация проекта на основе шаблона Create React App с описанием доступных npm-скриптов.",
+      "tags": [
+        "documentation",
+        "entry-point",
+        "overview"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/App.css",
+      "type": "file",
+      "name": "App.css",
+      "filePath": "src/App.css",
+      "summary": "Основные стили приложения: оформление шапки, навигации, карточек товаров, корзины и общих UI-элементов в стиле Ozon.",
+      "tags": [
+        "css",
+        "styling",
+        "layout",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/index.css",
+      "type": "file",
+      "name": "index.css",
+      "filePath": "src/index.css",
+      "summary": "Глобальные базовые стили: сброс отступов, шрифты и оформление body для всего приложения.",
+      "tags": [
+        "css",
+        "styling",
+        "global",
+        "reset"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/pages/ProductsPage_addition/ProductsPage.css",
+      "type": "file",
+      "name": "ProductsPage.css",
+      "filePath": "src/pages/ProductsPage_addition/ProductsPage.css",
+      "summary": "Стили страницы каталога товаров: сетка карточек, кнопки и элементы управления количеством.",
+      "tags": [
+        "css",
+        "styling",
+        "products-page",
+        "ui"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/App.js",
+      "target": "file:src/App.css",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/App.js",
+      "target": "file:src/components/CartDrawer.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/App.js",
+      "target": "file:src/components/Header.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/App.js",
+      "target": "file:src/hooks/useCart.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/App.js",
+      "target": "file:src/pages/ProductsPage.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/index.js",
+      "target": "file:src/App.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/App.js",
+      "target": "function:src/App.js:App",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/CartDrawer.jsx",
+      "target": "function:src/components/CartDrawer.jsx:CartDrawer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/CartDrawer.jsx",
+      "target": "function:src/components/CartDrawer.jsx:CartDrawer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/Header.jsx",
+      "target": "function:src/components/Header.jsx:Header",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/Header.jsx",
+      "target": "function:src/components/Header.jsx:Header",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/hooks/useCart.js",
+      "target": "function:src/hooks/useCart.js:useCart",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/hooks/useCart.js",
+      "target": "function:src/hooks/useCart.js:useCart",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/hooks/useCart.js",
+      "target": "function:src/hooks/useCart.js:getSavedCart",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/hooks/useCart.js",
+      "target": "function:src/hooks/useCart.js:updateLocalCart",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/hooks/useCart.js",
+      "target": "function:src/hooks/useCart.js:addToCart",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/hooks/useCart.js",
+      "target": "function:src/hooks/useCart.js:removeFromCart",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/hooks/useCart.js",
+      "target": "function:src/hooks/useCart.js:decreaseItem",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/hooks/useCart.js",
+      "target": "function:src/hooks/useCart.js:clearCart",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "function:src/App.js:App",
+      "target": "function:src/hooks/useCart.js:useCart",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/hooks/useCart.js:useCart",
+      "target": "function:src/hooks/useCart.js:getSavedCart",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/hooks/useCart.js:addToCart",
+      "target": "function:src/hooks/useCart.js:updateLocalCart",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/AddToCartButton.jsx",
+      "target": "function:src/components/AddToCartButton.jsx:AddToCartButton",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/AddToCartButton.jsx",
+      "target": "function:src/components/AddToCartButton.jsx:AddToCartButton",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/hooks/useProducts.js",
+      "target": "function:src/hooks/useProducts.js:useProducts",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/hooks/useProducts.js",
+      "target": "function:src/hooks/useProducts.js:useProducts",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/hooks/useProducts.js",
+      "target": "file:src/data/products.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/ProductsPage.jsx",
+      "target": "function:src/pages/ProductsPage.jsx:ProductsPage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/pages/ProductsPage.jsx",
+      "target": "function:src/pages/ProductsPage.jsx:ProductsPage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/pages/ProductsPage.jsx",
+      "target": "file:src/components/AddToCartButton.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/ProductsPage.jsx",
+      "target": "file:src/hooks/useProducts.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/pages/ProductsPage.jsx",
+      "target": "file:src/pages/ProductsPage_addition/ProductsPage.css",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "function:src/pages/ProductsPage.jsx:ProductsPage",
+      "target": "function:src/hooks/useProducts.js:useProducts",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/pages/ProductsPage.jsx",
+      "target": "function:src/components/AddToCartButton.jsx:AddToCartButton",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:public/cart-shared-worker.js",
+      "target": "function:public/cart-shared-worker.js:sendCartToPort",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:public/cart-shared-worker.js",
+      "target": "function:public/cart-shared-worker.js:broadcastCart",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:public/cart-shared-worker.js",
+      "target": "function:public/cart-shared-worker.js:addItem",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:public/cart-shared-worker.js",
+      "target": "function:public/cart-shared-worker.js:decreaseItem",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "function:public/cart-shared-worker.js:broadcastCart",
+      "target": "function:public/cart-shared-worker.js:sendCartToPort",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:public/cart-shared-worker.js",
+      "target": "file:src/hooks/useCart.js",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:public/service-worker.js",
+      "target": "function:public/service-worker.js:precache",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:public/service-worker.js",
+      "target": "function:public/service-worker.js:isImage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:public/service-worker.js",
+      "target": "function:public/service-worker.js:cleanResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:public/service-worker.js",
+      "target": "function:public/service-worker.js:cacheFirst",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:public/service-worker.js",
+      "target": "function:public/service-worker.js:networkFirst",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:public/service-worker.js",
+      "target": "function:public/service-worker.js:staleWhileRevalidate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "function:public/service-worker.js:networkFirst",
+      "target": "function:public/service-worker.js:cleanResponse",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:public/service-worker.js",
+      "target": "config:public/api/products.json",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:public/manifest.json",
+      "target": "file:public/index.html",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:package.json",
+      "target": "file:src/index.js",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:src/App.css",
+      "target": "file:src/App.js",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/pages/ProductsPage_addition/ProductsPage.css",
+      "target": "file:src/pages/ProductsPage.jsx",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ],
+  "layers": [
+    {
+      "id": "layer:entry",
+      "name": "Точка входа и App shell",
+      "description": "Загрузка React-приложения: монтирование корневого компонента App, HTML-оболочка SPA и регистрация service worker.",
+      "nodeIds": [
+        "file:src/index.js",
+        "file:src/App.js",
+        "file:public/index.html"
+      ]
+    },
+    {
+      "id": "layer:ui",
+      "name": "UI-компоненты",
+      "description": "Презентационные React-компоненты интерфейса: шапка, выезжающая панель корзины и кнопка добавления товара.",
+      "nodeIds": [
+        "file:src/components/CartDrawer.jsx",
+        "file:src/components/Header.jsx",
+        "file:src/components/AddToCartButton.jsx"
+      ]
+    },
+    {
+      "id": "layer:pages",
+      "name": "Страницы",
+      "description": "Страничные React-компоненты, привязанные к маршрутам router: страница каталога товаров.",
+      "nodeIds": [
+        "file:src/pages/ProductsPage.jsx"
+      ]
+    },
+    {
+      "id": "layer:state",
+      "name": "State и data hooks",
+      "description": "Кастомные React hooks управления состоянием: корзина с синхронизацией через SharedWorker и localStorage, загрузка товаров через fetch.",
+      "nodeIds": [
+        "file:src/hooks/useCart.js",
+        "file:src/hooks/useProducts.js"
+      ]
+    },
+    {
+      "id": "layer:data",
+      "name": "Данные и mock API",
+      "description": "Статический каталог товаров и mock-эндпоинт products.json, используемые как источник данных и fallback.",
+      "nodeIds": [
+        "file:src/data/products.js",
+        "config:public/api/products.json"
+      ]
+    },
+    {
+      "id": "layer:workers",
+      "name": "Web workers (фоновые и PWA)",
+      "description": "Фоновые скрипты: SharedWorker синхронизации корзины между вкладками и PWA service worker с офлайн-кешированием.",
+      "nodeIds": [
+        "file:public/cart-shared-worker.js",
+        "file:public/service-worker.js"
+      ]
+    },
+    {
+      "id": "layer:styles",
+      "name": "Стили",
+      "description": "CSS-стили приложения: глобальные базовые стили, оформление в стиле Ozon и стили страницы каталога.",
+      "nodeIds": [
+        "file:src/App.css",
+        "file:src/index.css",
+        "file:src/pages/ProductsPage_addition/ProductsPage.css"
+      ]
+    },
+    {
+      "id": "layer:config",
+      "name": "Конфигурация и документация",
+      "description": "Манифесты и документация проекта: npm-манифест Create React App, PWA-manifest и README.",
+      "nodeIds": [
+        "config:package.json",
+        "config:public/manifest.json",
+        "document:README.md"
+      ]
+    }
+  ],
+  "tour": [
+    {
+      "order": 1,
+      "title": "Обзор проекта",
+      "description": "Начните с README.md, чтобы понять, что это за проект. Это Ozon-подобный интерфейс корзины покупок на React 19 и react-router-dom v6, созданный на основе Create React App. README минимален и описывает лишь стандартные npm-скрипты (start, test, build), поэтому реальную архитектуру мы изучим, двигаясь по коду в следующих шагах.",
+      "nodeIds": [
+        "document:README.md"
+      ]
+    },
+    {
+      "order": 2,
+      "title": "Манифест и зависимости",
+      "description": "package.json задаёт фундамент проекта: версии зависимостей (React 19, react-router-dom v6), скрипты сборки и запуска, а также конфигурацию ESLint и browserslist. Опираясь на обзор из шага 1, этот файл показывает, на каком технологическом стеке построено приложение и как его собирать. Он же связан со скриптом запуска, который монтирует точку входа из следующего шага.",
+      "nodeIds": [
+        "config:package.json"
+      ]
+    },
+    {
+      "order": 3,
+      "title": "HTML-оболочка и точка входа",
+      "description": "index.html — это статическая оболочка SPA с корневым элементом #root, в который монтируется приложение, и ссылкой на PWA-manifest. Файл src/index.js является точкой входа: он вызывает ReactDOM.createRoot и рендерит корневой компонент App в этот #root. Это начало BFS-обхода (depth 0) — отсюда расходятся все зависимости приложения.",
+      "nodeIds": [
+        "file:public/index.html",
+        "file:src/index.js"
+      ],
+      "languageLesson": "В React 18+ точкой входа служит ReactDOM.createRoot(domNode).render(<App />) — это новый Concurrent API, заменивший устаревший ReactDOM.render. createRoot включает конкурентные возможности рендеринга."
+    },
+    {
+      "order": 4,
+      "title": "Корневой компонент App",
+      "description": "src/App.js — сердце приложения и самый связанный узел графа (наибольший fan-out). Он подключает hook useCart, регистрирует PWA service worker и связывает воедино Header, CartDrawer и ProductsPage, управляя состоянием открытия корзины. Это depth 1 BFS-обхода: всё, что мы увидим дальше, App либо импортирует, либо координирует.",
+      "nodeIds": [
+        "file:src/App.js",
+        "file:src/App.css"
+      ],
+      "languageLesson": "В React состояние, общее для нескольких дочерних компонентов (например, открыта ли корзина), поднимают наверх (lifting state up) в общего родителя и передают вниз через props и колбэки — это и делает App для Header и CartDrawer."
+    },
+    {
+      "order": 5,
+      "title": "Каталог товаров: страница",
+      "description": "src/pages/ProductsPage.jsx — страничный компонент каталога, привязанный к маршруту router. Он получает список товаров через hook useProducts, отрисовывает карточки с рейтингом, ценой и наличием и рендерит кнопку AddToCartButton для каждой позиции. Это основной пользовательский экран, к которому ведёт App из шага 4. Стили карточек и сетки вынесены в отдельный ProductsPage.css (тесно связанный кластер).",
+      "nodeIds": [
+        "file:src/pages/ProductsPage.jsx",
+        "file:src/pages/ProductsPage_addition/ProductsPage.css"
+      ]
+    },
+    {
+      "order": 6,
+      "title": "Загрузка данных и источник товаров",
+      "description": "Hook useProducts загружает товары через fetch к mock API, управляя статусами loading/fallback, и при недоступности сети откатывается на локальные данные. Эти локальные данные лежат в src/data/products.js, а сам mock-эндпоинт — это статический public/api/products.json. Вместе они образуют слой данных, питающий страницу каталога из шага 5.",
+      "nodeIds": [
+        "file:src/hooks/useProducts.js",
+        "file:src/data/products.js",
+        "config:public/api/products.json"
+      ],
+      "languageLesson": "Кастомные hooks (имя начинается с use) инкапсулируют логику с состоянием и побочными эффектами, делая её переиспользуемой. useProducts использует useEffect для запуска fetch при монтировании и useState для хранения статусов loading/fallback."
+    },
+    {
+      "order": 7,
+      "title": "Кнопка добавления в корзину",
+      "description": "AddToCartButton.jsx — презентационный компонент кнопки «Добавить в корзину». Он вызывает переданный props-колбэк onAdd с товаром и автоматически отключается, когда товара нет в наличии. Это связующее звено между каталогом из шага 5 и логикой корзины, которую мы разберём дальше: клик по кнопке в итоге доходит до hook useCart.",
+      "nodeIds": [
+        "file:src/components/AddToCartButton.jsx"
+      ],
+      "languageLesson": "Презентационные («глупые») компоненты не владеют бизнес-логикой, а получают данные и колбэки через props. Это разделение делает UI предсказуемым и легко тестируемым."
+    },
+    {
+      "order": 8,
+      "title": "Ядро состояния корзины: useCart",
+      "description": "src/hooks/useCart.js — центральный hook управления корзиной и один из самых востребованных узлов (высокий fan-in). Он предоставляет операции добавления, удаления, изменения количества и очистки, сохраняет состояние в localStorage и синхронизирует его между вкладками через SharedWorker, а также отслеживает статус сети. Именно сюда стекаются действия пользователя из шагов 5 и 7, а его данные читают Header и CartDrawer.",
+      "nodeIds": [
+        "file:src/hooks/useCart.js"
+      ],
+      "languageLesson": "Для сохранения состояния между перезагрузками hook читает начальное значение из localStorage (лениво, через инициализатор useState) и записывает изменения в useEffect. Это типичный паттерн «persistent state» в React."
+    },
+    {
+      "order": 9,
+      "title": "Синхронизация корзины между вкладками",
+      "description": "public/cart-shared-worker.js — это SharedWorker, который синхронизирует состояние корзины между всеми вкладками браузера. Он хранит общий список товаров, обрабатывает подключения портов от каждой вкладки и рассылает обновления всем подключённым клиентам (broadcastCart → sendCartToPort). Этот worker напрямую связан с useCart из шага 8: когда корзина меняется в одной вкладке, остальные мгновенно получают обновление.",
+      "nodeIds": [
+        "file:public/cart-shared-worker.js"
+      ],
+      "languageLesson": "SharedWorker — это фоновый скрипт, разделяемый между всеми вкладками одного origin. Вкладки общаются с ним через объект port (port.postMessage / port.onmessage), что позволяет вести единое состояние без сервера."
+    },
+    {
+      "order": 10,
+      "title": "UI корзины: Header и CartDrawer",
+      "description": "Эти два презентационных компонента отражают состояние корзины из useCart. Header показывает логотип, счётчик товаров и кнопку открытия панели, а CartDrawer — выезжающую панель со списком позиций, итогом и кнопками увеличения, уменьшения и удаления через props-колбэки. Они замыкают цикл взаимодействия: действия пользователя идут в useCart (шаг 8), а результат отображается здесь.",
+      "nodeIds": [
+        "file:src/components/Header.jsx",
+        "file:src/components/CartDrawer.jsx"
+      ]
+    },
+    {
+      "order": 11,
+      "title": "PWA: service worker и офлайн-кеширование",
+      "description": "public/service-worker.js реализует жизненный цикл install/activate/fetch и несколько стратегий кеширования: cache-first, network-first и stale-while-revalidate — для офлайн-работы. Он регистрируется из App (шаг 4) и кеширует ресурсы, включая mock API products.json. Вместе с manifest.json (имя, иконки, цвета темы, режим отображения) он превращает приложение в устанавливаемое Progressive Web App.",
+      "nodeIds": [
+        "file:public/service-worker.js",
+        "config:public/manifest.json"
+      ],
+      "languageLesson": "Стратегии кеширования service worker определяют баланс свежести и скорости: cache-first отдаёт кеш мгновенно (для статики), network-first предпочитает сеть с откатом на кеш (для данных), а stale-while-revalidate отдаёт кеш и фоном обновляет его."
+    },
+    {
+      "order": 12,
+      "title": "Глобальные стили",
+      "description": "В завершение тура — базовый слой оформления. src/index.css задаёт глобальные стили: сброс отступов, шрифты и оформление body для всего приложения. Это фундамент, поверх которого работают тематические стили App.css (шаг 4) и ProductsPage.css (шаг 5), формирующие узнаваемый Ozon-подобный вид интерфейса.",
+      "nodeIds": [
+        "file:src/index.css"
+      ]
+    }
+  ]
+}

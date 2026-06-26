@@ -1,0 +1,45 @@
+{
+  "scriptCompleted": true,
+  "stats": {
+    "filesScanned": 21,
+    "filesWithImports": 4,
+    "totalEdges": 10
+  },
+  "importMap": {
+    ".understand-anything/.understandignore": [],
+    ".understand-anything/config.json": [],
+    "package.json": [],
+    "public/api/products.json": [],
+    "public/cart-shared-worker.js": [],
+    "public/index.html": [],
+    "public/manifest.json": [],
+    "public/service-worker.js": [],
+    "README.md": [],
+    "src/App.css": [],
+    "src/App.js": [
+      "src/App.css",
+      "src/components/CartDrawer.jsx",
+      "src/components/Header.jsx",
+      "src/hooks/useCart.js",
+      "src/pages/ProductsPage.jsx"
+    ],
+    "src/components/AddToCartButton.jsx": [],
+    "src/components/CartDrawer.jsx": [],
+    "src/components/Header.jsx": [],
+    "src/data/products.js": [],
+    "src/hooks/useCart.js": [],
+    "src/hooks/useProducts.js": [
+      "src/data/products.js"
+    ],
+    "src/index.css": [],
+    "src/index.js": [
+      "src/App.js"
+    ],
+    "src/pages/ProductsPage_addition/ProductsPage.css": [],
+    "src/pages/ProductsPage.jsx": [
+      "src/components/AddToCartButton.jsx",
+      "src/hooks/useProducts.js",
+      "src/pages/ProductsPage_addition/ProductsPage.css"
+    ]
+  }
+}

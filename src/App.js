@@ -13,6 +13,8 @@ function App() {
     cart,
     totalCount,
     totalPrice,
+    isOnline,
+    workerStatus,
     addToCart,
     removeFromCart,
     decreaseItem,
@@ -20,14 +22,21 @@ function App() {
   } = useCart();
 
   useEffect(() => {
-    if ('serviceWorker' in navigator) {
+    // Service Worker регистрируем только в production-сборке.
+    // В dev-режиме (npm start) агрессивное кеширование ломает hot-reload.
+    if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
       navigator.serviceWorker.register('/service-worker.js');
     }
   }, []);
 
   return (
     <div className="App">
-      <Header totalCount={totalCount} onCartOpen={() => setIsCartOpen(true)} />
+      <Header
+        totalCount={totalCount}
+        isOnline={isOnline}
+        workerStatus={workerStatus}
+        onCartOpen={() => setIsCartOpen(true)}
+      />
 
       <Routes>
         <Route path="/" element={<Navigate to="/cart" replace />} />
